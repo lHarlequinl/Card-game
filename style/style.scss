@@ -1,0 +1,144 @@
+// Шрифты
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+// Файл обнуляющих стилей
+
+@import "nullstyle.scss";
+
+/*------------------------------------------------*/
+
+body {
+	font-family: 'Montserrat';
+	height: 100%;
+	font-size: 16px;
+	background-image: url(../img/bg.webp);
+	background-repeat: repeat;
+	color: azure;
+}
+
+/*------------------------------------------------*/
+
+.wrapper {
+	min-height: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+.conteiner {
+	max-width: 1280px;
+	padding: 0 15px;
+	margin: 0 auto;
+}
+
+.main {
+	flex: 1 1 auto;
+}
+
+.button {
+	display: inline-block;
+	align-items: center;
+	justify-content: center;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 17px;
+	color: #000000;
+	background:  #c6c4c4;
+	border-radius: 20px;
+	height: 40px;
+	width: 200px;
+	transition: all 0.3s;
+
+	&:active {
+		position: relative;
+		top: 1px
+	}
+
+	&:hover {
+		background: rgba(222, 215, 215, 0.41);
+	}
+}
+
+.error {
+	box-shadow: 0 0 15px #ff0000;
+}
+
+.input {
+	padding: 0 10px;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 17px;
+	color: #000000;
+	background: #ffffff;
+	border: 1px solid black;
+	border-radius: 10px;
+	height: 30px;
+	width: 250px;
+	transition: all 0.2s;
+
+	&:active {
+		position: relative;
+	}
+
+	&:focus {
+		border: 2px solid #0082fc;
+	}
+}
+
+.textarea {
+	padding: 5px;
+	width: 350px;
+	height: 100px;
+
+	&:focus {
+		border: 2px solid #0082fc;
+	}
+}
+
+/*------header------*/
+
+.header {
+	padding-top: 15px;
+	min-height: 80px;
+	align-items: center;
+	flex-wrap: wrap;
+
+	&__top {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		border-bottom: 2px solid #767575;
+		padding-bottom: 15px;
+	}
+	
+	
+	&__logo {
+		width: 150px;
+		height: 40px;
+	}
+	
+}
+
+
+/*------page------*/
+
+.page {}
+
+/*------footer------*/
+
+.footer {
+	margin-top: auto;
+	height: 100px;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+
+
+
+/*---Адаптив---*/
+
+@import 'tablet';
+@import 'mobile';
