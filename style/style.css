@@ -1,5 +1,8 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap");
+@font-face {
+  font-family: "SkyEng";
+  src: url(../fonts/stratosskyengweb-regular.woff2) format("woff2");
+}
 /*Обнуление*/
 * {
   padding: 0;
@@ -75,17 +78,16 @@ h1, h2, h3, h4, h5, h6 {
 /*--------------------*/
 /*------------------------------------------------*/
 body {
-  font-family: "Montserrat";
+  font-family: "SkyEng";
   height: 100%;
   font-size: 16px;
-  background-image: url(../img/bg.webp);
-  background-repeat: repeat;
-  color: azure;
+  background-color: #034d93;
+  color: white;
 }
 
 /*------------------------------------------------*/
 .wrapper {
-  min-height: 100%;
+  min-height: 100vh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -103,16 +105,17 @@ body {
 
 .button {
   display: inline-block;
+  background-color: #7AC100;
+  border-radius: 12px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 17px;
-  color: #000000;
-  background: #c6c4c4;
-  border-radius: 20px;
-  height: 40px;
-  width: 200px;
+  text-align: center;
+  width: 246px;
+  height: 50px;
+  color: #FFFFFF;
+  font-size: 24px;
+  line-height: 32px;
   transition: all 0.3s;
 }
 .button:active {
@@ -120,69 +123,63 @@ body {
   top: 1px;
 }
 .button:hover {
-  background: rgba(222, 215, 215, 0.41);
+  background: #4a7501;
 }
 
 .error {
   box-shadow: 0 0 15px #ff0000;
 }
 
-.input {
-  padding: 0 10px;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 17px;
-  color: #000000;
-  background: #ffffff;
-  border: 1px solid black;
-  border-radius: 10px;
-  height: 30px;
-  width: 250px;
-  transition: all 0.2s;
-}
-.input:active {
-  position: relative;
-}
-.input:focus {
-  border: 2px solid #0082fc;
-}
-
-.textarea {
-  padding: 5px;
-  width: 350px;
-  height: 100px;
-}
-.textarea:focus {
-  border: 2px solid #0082fc;
-}
-
-/*------header------*/
-.header {
-  padding-top: 15px;
-  min-height: 80px;
-  align-items: center;
-  flex-wrap: wrap;
-}
-.header__top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 2px solid #767575;
-  padding-bottom: 15px;
-}
-.header__logo {
-  width: 150px;
-  height: 40px;
-}
-
 /*------page------*/
-/*------footer------*/
-.footer {
-  margin-top: auto;
-  height: 100px;
+.page__content {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.level__wrapper {
+  background-color: #C2F5FF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 70px;
+  width: 460px;
+  height: 480px;
+  border-radius: 12px;
+}
+
+.level__title {
+  color: #004980;
+  font-size: 40px;
+  line-height: 48px;
+  text-align: center;
+}
+
+.level__number-wrapper {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
+  -moz-column-gap: 24px;
+       column-gap: 24px;
+  margin-top: 48px;
+  margin-bottom: 67px;
+}
+
+.level__number-item {
+  color: #0080C1;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 98px;
+  height: 98px;
+  border-radius: 12px;
+  background-color: #FFFFFF;
+  font-size: 64px;
+  line-height: 72px;
+  justify-content: center;
 }
 
 /*---Адаптив---*/
