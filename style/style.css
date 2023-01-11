@@ -131,7 +131,7 @@ body {
 }
 
 /*------page------*/
-.page__content {
+.page {
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -180,11 +180,9 @@ body {
   font-size: 64px;
   line-height: 72px;
   justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
 }
-
-/*---Адаптив---*/
-@media (max-width: 767px) {
-  .center {
-    padding: 0 16px;
-  }
+.level__number-item:hover {
+  box-shadow: 0 0 15px #0080C1;
 }/*# sourceMappingURL=style.css.map */
