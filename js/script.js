@@ -3,14 +3,14 @@
 
 
 function renderStartPage() {
-	const page = document.querySelector('.page')
+	const page = document.querySelector('.page');
 
 	page.appendChild(templateEngine(startPageTemplate()));
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-	renderStartPage()
-})
+	renderStartPage();
+});
 
 
 function startPageTemplate() {
@@ -28,12 +28,12 @@ function startPageTemplate() {
 				cls: 'level__number-wrapper',
 				content: [
 					{
-						tag: 'p',
+						tag: 'div',
 						cls: 'level__number-item',
 						text: '1'
 					},
 					{
-						tag: 'p',
+						tag: 'pdiv',
 						cls: 'level__number-item',
 						text: '2'
 					},
