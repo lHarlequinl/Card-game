@@ -32,15 +32,15 @@ function renderStartButton(container) {
 
 			switch (levelNumber) {
 				case '1':
-					window.app.renderScreen('gameScreenLow');
+					window.app.renderScreen('gameScreen');
 					break;
 
 				case '2':
-					console.log('gamePageMiddleTemplate');
+					window.app.renderScreen('gameScreen');
 					break;
 
 				case '3':
-					console.log('gamePageHardTemplate');
+					window.app.renderScreen('gameScreen');
 					break;
 
 				default:

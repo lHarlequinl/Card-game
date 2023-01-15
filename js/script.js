@@ -32,11 +32,8 @@ blocks['levelNumber'] = renderLevelNumber;
 
 
 // GAME
-screens['gameScreenLow'] = renderGameScreenLow;
+screens['gameScreen'] = renderGameScreen;
 blocks['newGame'] = renderNewGame;
-
-
-
 
 
 

@@ -1,14 +1,11 @@
-function renderGameScreenLow() {
+function renderGameScreen() {
 	window.app.mainNode.appendChild(templateEngine(gameScreenTemplate()));
 
-	const gameScreen = document.querySelector('.game__screen');
+	const screenHeader = document.querySelector('.game__screen-header');
 
-	gameScreen.appendChild(templateEngine(gameCardsTemplate()));
+	screenHeader.appendChild(templateEngine(playNewGameTemplate()));
 
-	const NewGame = document.querySelector('.game__screen-header');
-	NewGame.appendChild(templateEngine(playNewGameTemplate()));
-
-	window.app.renderBlock('newGame', NewGame);
+	window.app.renderBlock('newGame', screenHeader);
 };
 
 
@@ -21,10 +18,6 @@ function renderNewGame() {
 			window.app.level = [];
 			window.app.renderScreen('startScreen');
 		})
-};
-
-function renderCardsBlock(container) {
-	container.appendChild(templateEngine(gamePageBottomTemplate()));
 };
 
 
@@ -66,6 +59,11 @@ function gameScreenTemplate() {
 						]
 					},
 				]
+			},
+			{
+				tag: 'section',
+				cls: ['game__screen-cards', 'game__screen-cards_low'],
+				content: ``
 			}
 		]
 	}
@@ -76,75 +74,6 @@ function playNewGameTemplate() {
 		tag: 'button',
 		cls: ['game__button', 'button'],
 		text: 'Начать заново'
-	}
-};
-
-function gameCardsTemplate() {
-	return {
-		tag: 'section',
-		cls: ['game__screen-cards', 'game__screen-cards_low'],
-		content: [
-			{
-				tag: 'div',
-				cls: 'cards__box',
-				content: [
-					{
-						tag: 'img',
-						cls: 'card__item',
-						attrs: {
-							alt: 'card',
-							width: '95',
-							src: './img/cards/6C.svg',
-						},
-					},
-					{
-						tag: 'img',
-						cls: 'card__item',
-						attrs: {
-							alt: 'card',
-							width: '95',
-							src: './img/cards/6D.svg',
-						},
-					},
-					{
-						tag: 'img',
-						cls: 'card__item',
-						attrs: {
-							alt: 'card',
-							width: '95',
-							src: './img/cards/9C.svg',
-						},
-					},
-					{
-						tag: 'img',
-						cls: 'card__item',
-						attrs: {
-							alt: 'card',
-							width: '95',
-							src: './img/cards/6C.svg',
-						},
-					},
-					{
-						tag: 'img',
-						cls: 'card__item',
-						attrs: {
-							alt: 'card',
-							width: '95',
-							src: './img/cards/9C.svg',
-						},
-					},
-					{
-						tag: 'img',
-						cls: 'card__item',
-						attrs: {
-							alt: 'card',
-							width: '95',
-							src: './img/cards/6D.svg',
-						},
-					},
-				]
-			}
-		]
 	}
 };
 
