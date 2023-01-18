@@ -87,10 +87,11 @@ body {
 
 /*------------------------------------------------*/
 .wrapper {
-  min-height: 100vh;
-  overflow: hidden;
   display: flex;
-  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
+  align-items: center;
 }
 
 .button {
@@ -123,10 +124,8 @@ body {
 /*------game------*/
 .game {
   padding: 40px 22px;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin: 0 auto;
+  max-width: 1280px;
 }
 
 .level__wrapper {
@@ -182,7 +181,7 @@ body {
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 100%;
+  gap: 35px;
 }
 
 .game__screen-header {
@@ -213,21 +212,11 @@ body {
   font-size: 64px;
 }
 
-.game__screen-cards {
-  align-items: center;
-  display: flex;
-  flex-flow: row wrap;
-  flex-grow: 1;
-  justify-content: center;
-}
-
-.cards__box {
+.cards__wrapper {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  width: 315px;
   gap: 15px;
+  justify-content: center;
 }
 
 .card__item {
