@@ -19,7 +19,7 @@ function renderLevelNumber(container) {
             const levelSelection = target.getAttribute("data-id");
 
             window.app.userLevel = levelSelection;
-            console.log(window.app.levels[window.app.userLevel]);
+            // console.log(window.app.levels[window.app.userLevel]);
         });
 }
 

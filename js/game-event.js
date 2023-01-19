@@ -21,11 +21,47 @@ function renderNewGame() {
         });
 }
 
-function startTimer() {
+function timer() {
+    setTimeout(() => {
+        gameWatch();
+        coupCards();
+    }, 5000);
+}
+
+function gameWatch() {
     const gameTimer = document.querySelector(".timer__degits");
+
+    let milliseconds = 0;
+    let startTimer;
+
+    startTimer = setInterval(() => {
+        milliseconds += 1000;
+
+        let dateTimer = new Date(milliseconds);
+
+        gameTimer.innerHTML =
+            ("0" + dateTimer.getUTCMinutes()).slice(-2) +
+            "." +
+            ("0" + dateTimer.getUTCSeconds()).slice(-2);
+    }, 1000);
+}
+
+function coupCards() {
+    const cardFront = document.querySelectorAll('.card__item-front');
+    const cardBack = document.querySelectorAll('.card__item-back');
+    
+    cardBack.forEach(card => {
+        card.classList.remove('card__item_hidden');
+    });
+
+    cardFront.forEach(card => {
+        card.classList.add('card__item_hidden');
+    });
 }
 
 function renderCards() {
+    timer();
+
     let cardValues = cards;
     const difficulty = window.app.userLevel;
     const numberOfCards = window.app.levels[window.app.userLevel];
@@ -95,8 +131,8 @@ function gameScreenTemplate() {
                     {
                         tag: "div",
                         cls: "cards__wrapper",
-                    }
-                ]
+                    },
+                ],
             },
         ],
     };
