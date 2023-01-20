@@ -87,15 +87,16 @@ body {
 
 /*------------------------------------------------*/
 .wrapper {
-  min-height: 100vh;
-  overflow: hidden;
   display: flex;
-  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
+  align-items: center;
 }
 
 .button {
   display: inline-block;
-  background-color: #7AC100;
+  background-color: #7ac100;
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -103,7 +104,7 @@ body {
   text-align: center;
   width: 246px;
   height: 50px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 24px;
   line-height: 32px;
   transition: all 0.3s;
@@ -123,14 +124,12 @@ body {
 /*------game------*/
 .game {
   padding: 40px 22px;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin: 0 auto;
+  max-width: 1280px;
 }
 
 .level__wrapper {
-  background-color: #C2F5FF;
+  background-color: #c2f5ff;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -157,14 +156,14 @@ body {
 }
 
 .level__number-item {
-  color: #0080C1;
+  color: #0080c1;
   display: flex;
   align-items: center;
   text-align: center;
   width: 98px;
   height: 98px;
   border-radius: 12px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   font-size: 64px;
   line-height: 72px;
   justify-content: center;
@@ -172,17 +171,17 @@ body {
   transition: all 0.3s;
 }
 .level__number-item:hover {
-  box-shadow: 0 0 15px #0080C1;
+  box-shadow: 0 0 15px #0080c1;
 }
 .level__number-item:focus {
-  border: 4px solid #0080C1;
+  border: 4px solid #0080c1;
 }
 
 .game__screen {
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 100%;
+  gap: 35px;
 }
 
 .game__screen-header {
@@ -213,21 +212,11 @@ body {
   font-size: 64px;
 }
 
-.game__screen-cards {
-  align-items: center;
-  display: flex;
-  flex-flow: row wrap;
-  flex-grow: 1;
-  justify-content: center;
-}
-
-.cards__box {
+.cards__wrapper {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  width: 315px;
   gap: 15px;
+  justify-content: center;
 }
 
 .card__item {
@@ -236,4 +225,8 @@ body {
 }
 .card__item:hover {
   transform: scale(1.1);
+}
+
+.card__item_hidden {
+  display: none;
 }/*# sourceMappingURL=style.css.map */
