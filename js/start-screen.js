@@ -33,23 +33,11 @@ function renderStartButton(container) {
 
             const levelNumber = window.app.userLevel;
 
-            switch (levelNumber) {
-                case "0":
-                    window.app.renderScreen("gameScreen");
-                    break;
-
-                case "1":
-                    window.app.renderScreen("gameScreen");
-                    break;
-
-                case "2":
-                    window.app.renderScreen("gameScreen");
-                    break;
-
-                default:
-                    console.log("Выбирете сложность!");
-                    break;
-            }
+            if(levelNumber) {
+                window.app.renderScreen("gameScreen");
+                }else {
+                console.log("Выбирете сложность!");
+                }
         });
 }
 

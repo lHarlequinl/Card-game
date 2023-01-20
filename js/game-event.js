@@ -40,8 +40,8 @@ function gameWatch() {
         let dateTimer = new Date(milliseconds);
 
         gameTimer.innerHTML =
-            ("0" + dateTimer.getUTCMinutes()).slice(-2) +
-            "." +
+            (dateTimer.getUTCMinutes()) +
+            ":" +
             ("0" + dateTimer.getUTCSeconds()).slice(-2);
     }, 1000);
 }
@@ -118,7 +118,7 @@ function gameScreenTemplate() {
                             {
                                 tag: "div",
                                 cls: "timer__degits",
-                                // text: `22:22`,
+                                text: `00:00`,
                             },
                         ],
                     },
