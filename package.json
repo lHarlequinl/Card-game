@@ -1,47 +1,49 @@
 {
-  "name": "hw-1",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "directories": {
-    "lib": "lib"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier --write ./src/",
-    "lint": "npm run lint:js",
-    "prepare": "husky install",
-    "lint:scss": "stylelint ./src/**/*.scss",
-    "lint:js": "eslint ./src/**/*.js",
-    "build": "webpack",
-    "start": "webpack-dev-server --open"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/lHarlequinl/SkyPro-card-game.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/lHarlequinl/SkyPro-card-game/issues"
-  },
-  "homepage": "https://github.com/lHarlequinl/SkyPro-card-game#readme",
-  "devDependencies": {
-    "copy-webpack-plugin": "^11.0.0",
-    "css-loader": "^6.7.3",
-    "eslint": "^8.32.0",
-    "eslint-config-prettier": "^8.6.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "html-webpack-plugin": "^5.5.0",
-    "husky": "^8.0.3",
-    "prettier": "^2.8.3",
-    "stylelint": "^14.16.1",
-    "stylelint-config-prettier": "^9.0.4",
-    "stylelint-config-standard": "^29.0.0",
-    "stylelint-config-standard-scss": "^6.1.0",
-    "stylelint-prettier": "^2.0.0",
-    "webpack": "^5.75.0",
-    "webpack-cli": "^5.0.1"
-  }
+	"name": "hw-1",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"directories": {
+		"lib": "lib"
+	},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"format": "prettier --write ./src/",
+		"lint": "npm run lint:js",
+		"prepare": "husky install",
+		"lint:scss": "stylelint ./src/**/*.scss",
+		"lint:js": "eslint ./src/**/*.js",
+		"build": "webpack",
+		"start": "webpack-dev-server --open"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/lHarlequinl/SkyPro-card-game.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/lHarlequinl/SkyPro-card-game/issues"
+	},
+	"homepage": "https://github.com/lHarlequinl/SkyPro-card-game#readme",
+	"devDependencies": {
+		"copy-webpack-plugin": "^11.0.0",
+		"css-loader": "^6.7.3",
+		"eslint": "^8.32.0",
+		"eslint-config-prettier": "^8.6.0",
+		"eslint-plugin-prettier": "^4.2.1",
+		"html-webpack-plugin": "^5.5.0",
+		"prettier": "^2.8.3",
+		"sass": "^1.57.1",
+		"sass-loader": "^13.2.0",
+		"stylelint": "^14.16.1",
+		"stylelint-config-prettier": "^9.0.4",
+		"stylelint-config-standard": "^29.0.0",
+		"stylelint-config-standard-scss": "^6.1.0",
+		"stylelint-prettier": "^2.0.0",
+		"webpack": "^5.75.0",
+		"webpack-cli": "^5.0.1",
+		"webpack-dev-server": "^4.11.1"
+	}
 }
