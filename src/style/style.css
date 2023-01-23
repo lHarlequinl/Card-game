@@ -10,23 +10,31 @@
   border: 0;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: border-box;
 }
 
-:focus, :active {
+:focus,
+:active {
   outline: none;
 }
 
-a:focus, a:active {
+a:focus,
+a:active {
   outline: none;
 }
 
-nav, footer, header, aside {
+nav,
+footer,
+header,
+aside {
   display: block;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   width: 100%;
   font-size: 100%;
@@ -37,7 +45,9 @@ html, body {
   -webkit-text-size-adjust: 100%;
 }
 
-input, button, textarea {
+input,
+button,
+textarea {
   font-family: inherit;
 }
 
@@ -54,7 +64,8 @@ button::-moz-focus-inner {
   border: 0;
 }
 
-a, a:visited {
+a,
+a:visited {
   text-decoration: none;
 }
 
@@ -70,7 +81,12 @@ img {
   vertical-align: top;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-size: inherit;
   font-weight: inherit;
 }
@@ -86,14 +102,6 @@ body {
 }
 
 /*------------------------------------------------*/
-.wrapper {
-  display: flex;
-  height: 100vh;
-  justify-content: center;
-  width: 100vw;
-  align-items: center;
-}
-
 .button {
   display: inline-block;
   background-color: #7ac100;
@@ -126,9 +134,13 @@ body {
   padding: 40px 22px;
   margin: 0 auto;
   max-width: 1280px;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
 }
 
-.level__wrapper {
+.window__wrapper {
   background-color: #c2f5ff;
   display: flex;
   flex-direction: column;
@@ -139,7 +151,7 @@ body {
   border-radius: 12px;
 }
 
-.level__title {
+.window__title {
   color: #004980;
   font-size: 40px;
   line-height: 48px;
@@ -212,21 +224,63 @@ body {
   font-size: 64px;
 }
 
-.cards__wrapper {
+.game__screen-cards {
+  margin: auto;
   display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
   justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  perspective: 1000px;
 }
 
 .card__item {
   cursor: pointer;
-  transition: all 0.3s;
+  margin: 5px;
+  position: relative;
+  width: 95px;
+  height: 133px;
 }
 .card__item:hover {
   transform: scale(1.1);
 }
+.card__item:active {
+  transform: scale(0.97);
+  transition: transform 0.2s;
+}
 
-.card__item_hidden {
-  display: none;
+.card__item-front,
+.card__item-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+.card__item-flip {
+  transform: rotateY(180deg);
+}
+
+.window-subtitle {
+  color: #000000;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+  margin-bottom: 10px;
+}
+
+.window-time {
+  color: #000000;
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 72px;
+  margin-bottom: 40px;
+}
+
+.window__lose-title {
+  margin-bottom: 28px;
+}
+
+.window__win-image {
+  margin-right: 15px;
 }/*# sourceMappingURL=style.css.map */

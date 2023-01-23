@@ -1,10 +1,13 @@
-
 function templateEngine(block) {
 	if (block === undefined || block === null || block === false) {
 		return document.createTextNode('');
 	}
 
-	if (typeof block === 'string' || typeof block === 'number' || typeof block === true) {
+	if (
+		typeof block === 'string' ||
+		typeof block === 'number' ||
+		typeof block === true
+	) {
 		return document.createTextNode(block);
 	}
 
