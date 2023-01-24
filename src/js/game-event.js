@@ -36,7 +36,6 @@ function gameWatch() {
 				('0' + dateTimer.getUTCSeconds()).slice(-2);
 		}, 1000);
 
-		gameWatch();
 		cardClickHandler();
 	}, 5000);
 }
