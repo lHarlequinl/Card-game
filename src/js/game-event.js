@@ -19,19 +19,12 @@ function renderNewGame() {
 	});
 }
 
-function gameEvent() {
-	setTimeout(() => {
-		gameWatch();
-		cardClickHandler();
-	}, 5000);
-}
-
 function gameWatch() {
 	const gameTimer = document.querySelector('.timer__degits');
 
 	let milliseconds = 0;
 
-	window.app.timers.push(
+	setTimeout(() => {
 		setInterval(() => {
 			milliseconds += 1000;
 
@@ -41,8 +34,11 @@ function gameWatch() {
 				('0' + dateTimer.getUTCMinutes()).slice(-2) +
 				':' +
 				('0' + dateTimer.getUTCSeconds()).slice(-2);
-		}, 1000)
-	);
+		}, 1000);
+
+		gameWatch();
+		cardClickHandler();
+	}, 5000);
 }
 
 let clickCount = 0;
@@ -74,9 +70,13 @@ function cardClickHandler() {
 
 function checkResult() {
 	const [firstCard, secondCard] = compare;
-	if (clickCount === 2 && firstCard !== secondCard) {
+	if (clickCount >= 2 && firstCard !== secondCard) {
 		window.app.renderScreen('loseWindow');
 
+		compare.length = 0;
+		clickCount = 0;
+	}
+	if (clickCount === 2 && firstCard === secondCard) {
 		compare.length = 0;
 		clickCount = 0;
 	}
@@ -103,7 +103,7 @@ function renderWinWindow() {
 }
 
 function renderCards() {
-	gameEvent();
+	gameWatch();
 
 	let cardValues = cards;
 	const difficulty = window.app.userLevel;

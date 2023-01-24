@@ -1,18 +1,18 @@
 // Шрифты
 
 @font-face {
-	font-family: SkyEng;
-	src: url(../fonts/stratosskyengweb-regular.woff2) format('woff2');
+	font-family: 'Skyeng';
+	src: url(../fonts/stratosSkyengweb-regular.woff2) format('woff2');
 }
 
 // Файл обнуляющих стилей
 
-@import 'nullstyle.scss';
+@import 'nullstyle';
 
 /* ------------------------------------------------ */
 
 body {
-	font-family: 'SkyEng';
+	font-family: Skyeng, Arial, Helvetica, sans-serif;
 	height: 100%;
 	font-size: 16px;
 	background-color: #034d93;

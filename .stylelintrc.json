@@ -9,7 +9,8 @@
     "rules": {
       "selector-class-pattern": null,
       "function-url-quotes": null,
-      "font-family-name-quotes": null
+      "font-family-name-quotes": null,
+      "no-invalid-position-at-import-rule": null
     }
 }
 
