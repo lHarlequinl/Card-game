@@ -27,19 +27,19 @@ const blocks = window.app.blocks;
 const screens = window.app.screens;
 
 // START SCREEN
-screens['startScreen'] = renderStartScreen;
+screens['startScreen'] = getStartScreen.renderStartScreen;
 
-blocks['startBtn'] = renderStartButton;
-blocks['levelNumber'] = renderLevelNumber;
+blocks['startBtn'] = getStartScreen.renderStartButton;
+blocks['levelNumber'] = getStartScreen.renderLevelNumber;
 
 // GAME
-screens['gameScreen'] = renderGameScreen;
-screens['loseWindow'] = renderLoseWindow;
-screens['winWindow'] = renderWinWindow;
+// screens['gameScreen'] = renderGameScreen;
+// screens['loseWindow'] = renderLoseWindow;
+// screens['winWindow'] = renderWinWindow;
 
-blocks['newGame'] = renderNewGame;
-blocks['cards'] = renderCards;
-blocks['clickHandler'] = cardClickHandler;
+// blocks['newGame'] = renderNewGame;
+// blocks['cards'] = renderCards;
+// blocks['clickHandler'] = cardClickHandler;
 
 function clearTimers() {
 	if (window.app.timers.length > 0) {

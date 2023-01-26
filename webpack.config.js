@@ -1,39 +1,112 @@
 const path = require('path');
+
+const mode = process.env.NODE_ENV || 'development';
+const devMode = mode === 'development';
+const target = devMode ? 'web' : 'browserslist';
+const devtool = devMode ? 'source-map' : undefined;
+
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-	context: path.join(__dirname, './src/'),
-	entry: './js/script.js',
+	mode,
+	target,
+	devtool,
+	devServer: {
+		port: 3000,
+		open: true,
+		hot: true,
+	},
+	entry: path.resolve(__dirname, 'src', 'index.js'),
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-		filename: 'bundle.js',
 		clean: true,
+		filename: '[name].[contenthash].js',
+		assetModuleFilename: 'assets/[name][ext]',
 	},
-	mode: 'development',
 	module: {
 		rules: [
 			{
-				test: /\.(css|sass|scss)/,
-				use: ['style-loader', 'css-loader', 'sass-loader'],
+				test: /\.html$/i,
+				loader: 'html-loader',
 			},
 			{
-				test: /\.(png|svg|jpg|jpeg|gif)$/i,
-				type: 'asset/resource',
+				test: /\.(c|sa|sc)ss$/i,
+				use: [
+					devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+					'css-loader',
+					{
+						loader: 'postcss-loader',
+						options: {
+							postcssOptions: {
+								plugins: [require('postcss-preset-env')],
+							},
+						},
+					},
+					{
+						loader: 'sass-loader',
+						options: {
+							sourceMap: true,
+						},
+					},
+				],
+			},
+			{
+				test: /\.m?js$/,
+				exclude: /node_modules/,
+				use: {
+					loader: 'babel-loader',
+					options: {
+						presets: [
+							['@babel/preset-env', { targets: 'defaults' }],
+						],
+					},
+				},
 			},
 			{
 				test: /\.(woff|woff2|eot|ttf|otf)$/i,
 				type: 'asset/resource',
+				generator: {
+					filename: 'fonts/[name][ext]',
+				},
+			},
+			{
+				test: /\.(png|svg|jpg|jpeg|gif)$/i,
+				type: 'asset/resource',
+				use: devMode
+					? []
+					: [
+							{
+								loader: 'image-webpack-loader',
+								options: {
+									mozjpeg: {
+										progressive: true,
+									},
+									optipng: {
+										enabled: false,
+									},
+									pngquant: {
+										quality: [0.65, 0.9],
+										speed: 4,
+									},
+									gifsicle: {
+										interlaced: false,
+									},
+									webp: {
+										quality: 75,
+									},
+								},
+							},
+					  ],
 			},
 		],
 	},
 	plugins: [
-		// new CopyPlugin({
-		//     patterns: [{ from: "static", to: "static" }],
-		// }),
 		new HtmlWebpackPlugin({
-			template: path.resolve(__dirname, './src/index.html'),
-			filename: 'index.html',
+			template: path.resolve(__dirname, 'src', 'index.html'),
+		}),
+		new MiniCssExtractPlugin({
+			filename: '[name].[contenthash].css',
 		}),
 	],
 };
