@@ -1,17 +1,21 @@
 {
-    "env": {
-        "browser": true,
-        "es6": true,
-        "node": true
-    },
-    "extends": ["eslint:recommended", "prettier"],
-    "plugins": ["prettier"],
-    "parserOptions": {
-        "ecmaVersion": 2022
-    },
-    "rules": {
-        "prettier/prettier": "error",
-        "snakecase": ["error"],
-        // "eqeqeq": ["error", "always"]
-    }
+	"env": {
+		"browser": true,
+		"es6": true,
+		"node": true
+	},
+	"extends": ["prettier"],
+	"plugins": ["prettier"],
+	"parserOptions": {
+		"sourceType": "module",
+		"ecmaVersion": 2020
+		// "allowImportExportEverywhere": true,
+		// "requireConfigFile": false
+	},
+	"rules": {
+		"prettier/prettier": ["error", { "endOfLine": "auto" }],
+		"camelcase": ["error"],
+		"eqeqeq": ["error", "always"],
+		"no-unused-vars": ["off"]
+	}
 }
