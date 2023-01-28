@@ -1,4 +1,4 @@
-const cards = [
+export const cards = [
 	{
 		tag: 'div',
 		cls: 'card__item',
@@ -9,7 +9,7 @@ const cards = [
 				attrs: {
 					'data-id': '6C',
 					width: '95',
-					src: './img/cards/6C.svg',
+					src: './static/img/cards/6C.svg',
 				},
 			},
 			{
@@ -18,7 +18,7 @@ const cards = [
 				attrs: {
 					'data-id': '6C',
 					width: '95',
-					src: './img/cards/shirt.svg',
+					src: './static/img/cards/shirt.svg',
 				},
 			},
 		],
@@ -33,7 +33,7 @@ const cards = [
 				attrs: {
 					'data-id': '6D',
 					width: '95',
-					src: './img/cards/6D.svg',
+					src: './static/img/cards/6D.svg',
 				},
 			},
 			{
@@ -42,7 +42,7 @@ const cards = [
 				attrs: {
 					'data-id': '6D',
 					width: '95',
-					src: './img/cards/shirt.svg',
+					src: './static/img/cards/shirt.svg',
 				},
 			},
 		],
@@ -57,7 +57,7 @@ const cards = [
 				attrs: {
 					'data-id': '6H',
 					width: '95',
-					src: './img/cards/6H.svg',
+					src: './static/img/cards/6H.svg',
 				},
 			},
 			{
@@ -66,7 +66,7 @@ const cards = [
 				attrs: {
 					'data-id': '6H',
 					width: '95',
-					src: './img/cards/shirt.svg',
+					src: './static/img/cards/shirt.svg',
 				},
 			},
 		],
@@ -81,7 +81,7 @@ const cards = [
 				attrs: {
 					'data-id': '6S',
 					width: '95',
-					src: './img/cards/6S.svg',
+					src: './static/img/cards/6S.svg',
 				},
 			},
 			{
@@ -90,7 +90,7 @@ const cards = [
 				attrs: {
 					'data-id': '6S',
 					width: '95',
-					src: './img/cards/shirt.svg',
+					src: './static/img/cards/shirt.svg',
 				},
 			},
 		],
@@ -105,7 +105,7 @@ const cards = [
 				attrs: {
 					'data-id': '7C',
 					width: '95',
-					src: './img/cards/7C.svg',
+					src: './static/img/cards/7C.svg',
 				},
 			},
 			{
@@ -114,7 +114,7 @@ const cards = [
 				attrs: {
 					'data-id': '7C',
 					width: '95',
-					src: './img/cards/shirt.svg',
+					src: './static/img/cards/shirt.svg',
 				},
 			},
 		],
@@ -129,7 +129,7 @@ const cards = [
 				attrs: {
 					'data-id': '7D',
 					width: '95',
-					src: './img/cards/7D.svg',
+					src: './static/img/cards/7D.svg',
 				},
 			},
 			{
@@ -138,7 +138,7 @@ const cards = [
 				attrs: {
 					'data-id': '7D',
 					width: '95',
-					src: './img/cards/shirt.svg',
+					src: './static/img/cards/shirt.svg',
 				},
 			},
 		],
@@ -153,7 +153,7 @@ const cards = [
 				attrs: {
 					'data-id': '7H',
 					width: '95',
-					src: './img/cards/7H.svg',
+					src: './static/img/cards/7H.svg',
 				},
 			},
 			{
@@ -162,7 +162,7 @@ const cards = [
 				attrs: {
 					'data-id': '7H',
 					width: '95',
-					src: './img/cards/shirt.svg',
+					src: './static/img/cards/shirt.svg',
 				},
 			},
 		],
@@ -177,7 +177,7 @@ const cards = [
 				attrs: {
 					'data-id': '7S',
 					width: '95',
-					src: './img/cards/7S.svg',
+					src: './static/img/cards/7S.svg',
 				},
 			},
 			{
@@ -186,7 +186,7 @@ const cards = [
 				attrs: {
 					'data-id': '7S',
 					width: '95',
-					src: './img/cards/shirt.svg',
+					src: './static/img/cards/shirt.svg',
 				},
 			},
 		],
@@ -201,7 +201,7 @@ const cards = [
 				attrs: {
 					'data-id': '8C',
 					width: '95',
-					src: './img/cards/8C.svg',
+					src: './static/img/cards/8C.svg',
 				},
 			},
 			{
@@ -210,7 +210,7 @@ const cards = [
 				attrs: {
 					'data-id': '8C',
 					width: '95',
-					src: './img/cards/shirt.svg',
+					src: './static/img/cards/shirt.svg',
 				},
 			},
 		],
@@ -225,7 +225,7 @@ const cards = [
 				attrs: {
 					'data-id': '8D',
 					width: '95',
-					src: './img/cards/8D.svg',
+					src: './static/img/cards/8D.svg',
 				},
 			},
 			{
@@ -234,7 +234,7 @@ const cards = [
 				attrs: {
 					'data-id': '8D',
 					width: '95',
-					src: './img/cards/shirt.svg',
+					src: './static/img/cards/shirt.svg',
 				},
 			},
 		],
@@ -249,7 +249,7 @@ const cards = [
 				attrs: {
 					'data-id': '8H',
 					width: '95',
-					src: './img/cards/8H.svg',
+					src: './static/img/cards/8H.svg',
 				},
 			},
 			{
@@ -258,7 +258,7 @@ const cards = [
 				attrs: {
 					'data-id': '8H',
 					width: '95',
-					src: './img/cards/shirt.svg',
+					src: './static/img/cards/shirt.svg',
 				},
 			},
 		],
@@ -273,7 +273,7 @@ const cards = [
 				attrs: {
 					'data-id': '8S',
 					width: '95',
-					src: './img/cards/8S.svg',
+					src: './static/img/cards/8S.svg',
 				},
 			},
 			{
@@ -282,7 +282,7 @@ const cards = [
 				attrs: {
 					'data-id': '8S',
 					width: '95',
-					src: './img/cards/shirt.svg',
+					src: './static/img/cards/shirt.svg',
 				},
 			},
 		],
@@ -297,7 +297,7 @@ const cards = [
 				attrs: {
 					'data-id': '9C',
 					width: '95',
-					src: './img/cards/9C.svg',
+					src: './static/img/cards/9C.svg',
 				},
 			},
 			{
@@ -306,7 +306,7 @@ const cards = [
 				attrs: {
 					'data-id': '9C',
 					width: '95',
-					src: './img/cards/shirt.svg',
+					src: './static/img/cards/shirt.svg',
 				},
 			},
 		],
@@ -321,7 +321,7 @@ const cards = [
 				attrs: {
 					'data-id': '9D',
 					width: '95',
-					src: './img/cards/9D.svg',
+					src: './static/img/cards/9D.svg',
 				},
 			},
 			{
@@ -330,7 +330,7 @@ const cards = [
 				attrs: {
 					'data-id': '9D',
 					width: '95',
-					src: './img/cards/shirt.svg',
+					src: './static/img/cards/shirt.svg',
 				},
 			},
 		],
@@ -345,7 +345,7 @@ const cards = [
 				attrs: {
 					'data-id': '9H',
 					width: '95',
-					src: './img/cards/9H.svg',
+					src: './static/img/cards/9H.svg',
 				},
 			},
 			{
@@ -354,7 +354,7 @@ const cards = [
 				attrs: {
 					'data-id': '9H',
 					width: '95',
-					src: './img/cards/shirt.svg',
+					src: './static/img/cards/shirt.svg',
 				},
 			},
 		],
@@ -369,7 +369,7 @@ const cards = [
 				attrs: {
 					'data-id': '9S',
 					width: '95',
-					src: './img/cards/9S.svg',
+					src: './static/img/cards/9S.svg',
 				},
 			},
 			{
@@ -378,7 +378,7 @@ const cards = [
 				attrs: {
 					'data-id': '9S',
 					width: '95',
-					src: './img/cards/shirt.svg',
+					src: './static/img/cards/shirt.svg',
 				},
 			},
 		],
@@ -393,7 +393,7 @@ const cards = [
 				attrs: {
 					'data-id': 'AC',
 					width: '95',
-					src: './img/cards/AC.svg',
+					src: './static/img/cards/AC.svg',
 				},
 			},
 			{
@@ -402,7 +402,7 @@ const cards = [
 				attrs: {
 					'data-id': 'AC',
 					width: '95',
-					src: './img/cards/shirt.svg',
+					src: './static/img/cards/shirt.svg',
 				},
 			},
 		],
@@ -417,7 +417,7 @@ const cards = [
 				attrs: {
 					'data-id': 'AD',
 					width: '95',
-					src: './img/cards/AD.svg',
+					src: './static/img/cards/AD.svg',
 				},
 			},
 			{
@@ -426,7 +426,7 @@ const cards = [
 				attrs: {
 					'data-id': 'AD',
 					width: '95',
-					src: './img/cards/shirt.svg',
+					src: './static/img/cards/shirt.svg',
 				},
 			},
 		],
@@ -441,7 +441,7 @@ const cards = [
 				attrs: {
 					'data-id': 'AH',
 					width: '95',
-					src: './img/cards/AH.svg',
+					src: './static/img/cards/AH.svg',
 				},
 			},
 			{
@@ -450,7 +450,7 @@ const cards = [
 				attrs: {
 					'data-id': 'AH',
 					width: '95',
-					src: './img/cards/shirt.svg',
+					src: './static/img/cards/shirt.svg',
 				},
 			},
 		],
@@ -465,7 +465,7 @@ const cards = [
 				attrs: {
 					'data-id': 'AS',
 					width: '95',
-					src: './img/cards/AS.svg',
+					src: './static/img/cards/AS.svg',
 				},
 			},
 			{
@@ -474,7 +474,7 @@ const cards = [
 				attrs: {
 					'data-id': 'AS',
 					width: '95',
-					src: './img/cards/shirt.svg',
+					src: './static/img/cards/shirt.svg',
 				},
 			},
 		],
@@ -489,7 +489,7 @@ const cards = [
 				attrs: {
 					'data-id': 'JC',
 					width: '95',
-					src: './img/cards/JC.svg',
+					src: './static/img/cards/JC.svg',
 				},
 			},
 			{
@@ -498,7 +498,7 @@ const cards = [
 				attrs: {
 					'data-id': 'JC',
 					width: '95',
-					src: './img/cards/shirt.svg',
+					src: './static/img/cards/shirt.svg',
 				},
 			},
 		],
@@ -513,7 +513,7 @@ const cards = [
 				attrs: {
 					'data-id': 'JD',
 					width: '95',
-					src: './img/cards/JD.svg',
+					src: './static/img/cards/JD.svg',
 				},
 			},
 			{
@@ -522,7 +522,7 @@ const cards = [
 				attrs: {
 					'data-id': 'JD',
 					width: '95',
-					src: './img/cards/shirt.svg',
+					src: './static/img/cards/shirt.svg',
 				},
 			},
 		],
@@ -537,7 +537,7 @@ const cards = [
 				attrs: {
 					'data-id': 'JH',
 					width: '95',
-					src: './img/cards/JH.svg',
+					src: './static/img/cards/JH.svg',
 				},
 			},
 			{
@@ -546,7 +546,7 @@ const cards = [
 				attrs: {
 					'data-id': 'JH',
 					width: '95',
-					src: './img/cards/shirt.svg',
+					src: './static/img/cards/shirt.svg',
 				},
 			},
 		],
@@ -561,7 +561,7 @@ const cards = [
 				attrs: {
 					'data-id': 'JS',
 					width: '95',
-					src: './img/cards/JS.svg',
+					src: './static/img/cards/JS.svg',
 				},
 			},
 			{
@@ -570,7 +570,7 @@ const cards = [
 				attrs: {
 					'data-id': 'JS',
 					width: '95',
-					src: './img/cards/shirt.svg',
+					src: './static/img/cards/shirt.svg',
 				},
 			},
 		],
@@ -585,7 +585,7 @@ const cards = [
 				attrs: {
 					'data-id': 'KC',
 					width: '95',
-					src: './img/cards/KC.svg',
+					src: './static/img/cards/KC.svg',
 				},
 			},
 			{
@@ -594,7 +594,7 @@ const cards = [
 				attrs: {
 					'data-id': 'KC',
 					width: '95',
-					src: './img/cards/shirt.svg',
+					src: './static/img/cards/shirt.svg',
 				},
 			},
 		],
@@ -609,7 +609,7 @@ const cards = [
 				attrs: {
 					'data-id': 'KD',
 					width: '95',
-					src: './img/cards/KD.svg',
+					src: './static/img/cards/KD.svg',
 				},
 			},
 			{
@@ -618,7 +618,7 @@ const cards = [
 				attrs: {
 					'data-id': 'KD',
 					width: '95',
-					src: './img/cards/shirt.svg',
+					src: './static/img/cards/shirt.svg',
 				},
 			},
 		],
@@ -633,7 +633,7 @@ const cards = [
 				attrs: {
 					'data-id': 'KH',
 					width: '95',
-					src: './img/cards/KH.svg',
+					src: './static/img/cards/KH.svg',
 				},
 			},
 			{
@@ -642,7 +642,7 @@ const cards = [
 				attrs: {
 					'data-id': 'KH',
 					width: '95',
-					src: './img/cards/shirt.svg',
+					src: './static/img/cards/shirt.svg',
 				},
 			},
 		],
@@ -657,7 +657,7 @@ const cards = [
 				attrs: {
 					'data-id': 'KS',
 					width: '95',
-					src: './img/cards/KS.svg',
+					src: './static/img/cards/KS.svg',
 				},
 			},
 			{
@@ -666,7 +666,7 @@ const cards = [
 				attrs: {
 					'data-id': 'KS',
 					width: '95',
-					src: './img/cards/shirt.svg',
+					src: './static/img/cards/shirt.svg',
 				},
 			},
 		],
@@ -681,7 +681,7 @@ const cards = [
 				attrs: {
 					'data-id': 'QC',
 					width: '95',
-					src: './img/cards/QC.svg',
+					src: './static/img/cards/QC.svg',
 				},
 			},
 			{
@@ -690,7 +690,7 @@ const cards = [
 				attrs: {
 					'data-id': 'QC',
 					width: '95',
-					src: './img/cards/shirt.svg',
+					src: './static/img/cards/shirt.svg',
 				},
 			},
 		],
@@ -705,7 +705,7 @@ const cards = [
 				attrs: {
 					'data-id': 'QD',
 					width: '95',
-					src: './img/cards/QD.svg',
+					src: './static/img/cards/QD.svg',
 				},
 			},
 			{
@@ -714,7 +714,7 @@ const cards = [
 				attrs: {
 					'data-id': 'QD',
 					width: '95',
-					src: './img/cards/shirt.svg',
+					src: './static/img/cards/shirt.svg',
 				},
 			},
 		],
@@ -729,7 +729,7 @@ const cards = [
 				attrs: {
 					'data-id': 'QH',
 					width: '95',
-					src: './img/cards/QH.svg',
+					src: './static/img/cards/QH.svg',
 				},
 			},
 			{
@@ -738,7 +738,7 @@ const cards = [
 				attrs: {
 					'data-id': 'QH',
 					width: '95',
-					src: './img/cards/shirt.svg',
+					src: './static/img/cards/shirt.svg',
 				},
 			},
 		],
@@ -753,7 +753,7 @@ const cards = [
 				attrs: {
 					'data-id': 'QS',
 					width: '95',
-					src: './img/cards/QS.svg',
+					src: './static/img/cards/QS.svg',
 				},
 			},
 			{
@@ -762,7 +762,7 @@ const cards = [
 				attrs: {
 					'data-id': 'QS',
 					width: '95',
-					src: './img/cards/shirt.svg',
+					src: './static/img/cards/shirt.svg',
 				},
 			},
 		],
@@ -777,7 +777,7 @@ const cards = [
 				attrs: {
 					'data-id': 'TC',
 					width: '95',
-					src: './img/cards/TC.svg',
+					src: './static/img/cards/TC.svg',
 				},
 			},
 			{
@@ -786,7 +786,7 @@ const cards = [
 				attrs: {
 					'data-id': 'TC',
 					width: '95',
-					src: './img/cards/shirt.svg',
+					src: './static/img/cards/shirt.svg',
 				},
 			},
 		],
@@ -801,7 +801,7 @@ const cards = [
 				attrs: {
 					'data-id': 'TD',
 					width: '95',
-					src: './img/cards/TD.svg',
+					src: './static/img/cards/TD.svg',
 				},
 			},
 			{
@@ -810,7 +810,7 @@ const cards = [
 				attrs: {
 					'data-id': 'TD',
 					width: '95',
-					src: './img/cards/shirt.svg',
+					src: './static/img/cards/shirt.svg',
 				},
 			},
 		],
@@ -825,7 +825,7 @@ const cards = [
 				attrs: {
 					'data-id': 'TH',
 					width: '95',
-					src: './img/cards/TH.svg',
+					src: './static/img/cards/TH.svg',
 				},
 			},
 			{
@@ -834,7 +834,7 @@ const cards = [
 				attrs: {
 					'data-id': 'TH',
 					width: '95',
-					src: './img/cards/shirt.svg',
+					src: './static/img/cards/shirt.svg',
 				},
 			},
 		],
@@ -849,7 +849,7 @@ const cards = [
 				attrs: {
 					'data-id': 'TS',
 					width: '95',
-					src: './img/cards/TS.svg',
+					src: './static/img/cards/TS.svg',
 				},
 			},
 			{
@@ -858,7 +858,7 @@ const cards = [
 				attrs: {
 					'data-id': 'TS',
 					width: '95',
-					src: './img/cards/shirt.svg',
+					src: './static/img/cards/shirt.svg',
 				},
 			},
 		],

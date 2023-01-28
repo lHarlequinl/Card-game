@@ -7,6 +7,7 @@ const devtool = devMode ? 'source-map' : undefined;
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
 	mode,
@@ -73,6 +74,9 @@ module.exports = {
 			{
 				test: /\.(png|svg|jpg|jpeg|gif)$/i,
 				type: 'asset/resource',
+				generator: {
+					filename: 'assets/img/cards/[name].[hash].[ext]',
+				},
 				use: devMode
 					? []
 					: [
@@ -107,6 +111,9 @@ module.exports = {
 		}),
 		new MiniCssExtractPlugin({
 			filename: '[name].[contenthash].css',
+		}),
+		new CopyPlugin({
+			patterns: [{ from: 'static', to: 'static' }],
 		}),
 	],
 };

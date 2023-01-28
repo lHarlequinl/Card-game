@@ -1,4 +1,6 @@
-function renderStartScreen() {
+import { templateEngine } from '../lib/template-engine';
+
+export function renderStartScreen() {
 	window.app.mainNode.appendChild(templateEngine(titleTemplate()));
 
 	const levelWrapper = document.querySelector('.level__wrapper');
@@ -7,7 +9,7 @@ function renderStartScreen() {
 	window.app.renderBlock('startBtn', levelWrapper);
 }
 
-function renderLevelNumber(container) {
+export function renderLevelNumber(container) {
 	container.appendChild(templateEngine(levelNumberTempalate()));
 
 	document
@@ -22,7 +24,7 @@ function renderLevelNumber(container) {
 		});
 }
 
-function renderStartButton(container) {
+export function renderStartButton(container) {
 	container.appendChild(templateEngine(startButtonTempalate()));
 
 	document

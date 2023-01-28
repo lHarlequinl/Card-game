@@ -8,8 +8,9 @@
 	"plugins": ["prettier"],
 	"parserOptions": {
 		"sourceType": "module",
-		"allowImportExportEverywhere": true,
-		"requireConfigFile": false
+		"ecmaVersion": 2020
+		// "allowImportExportEverywhere": true,
+		// "requireConfigFile": false
 	},
 	"rules": {
 		"prettier/prettier": ["error", { "endOfLine": "auto" }],

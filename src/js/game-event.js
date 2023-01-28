@@ -1,4 +1,7 @@
-function renderGameScreen() {
+import { cards } from './cards.js';
+import { templateEngine } from '../lib/template-engine';
+
+export function renderGameScreen() {
 	window.app.mainNode.appendChild(templateEngine(gameScreenTemplate()));
 
 	const gameScreen = document.querySelector('.game__screen');
@@ -10,7 +13,7 @@ function renderGameScreen() {
 	window.app.renderBlock('cards', gameScreen);
 }
 
-function renderNewGame() {
+export function renderNewGame() {
 	document.querySelector('.button').addEventListener('click', (event) => {
 		event.preventDefault();
 
@@ -43,7 +46,7 @@ function gameWatch() {
 let clickCount = 0;
 const compare = [];
 
-function cardClickHandler() {
+export function cardClickHandler() {
 	const cardsShirt = document.querySelectorAll('.card__item-back');
 
 	cardsShirt.forEach((card) => {
@@ -91,21 +94,20 @@ function checkResult() {
 	}
 }
 
-function renderLoseWindow() {
+export function renderLoseWindow() {
 	window.app.mainNode.appendChild(templateEngine(loseWindowTemplate()));
 	window.app.renderBlock('newGame');
 }
 
-function renderWinWindow() {
+export function renderWinWindow() {
 	window.app.mainNode.appendChild(templateEngine(winWindowTemplate()));
 	window.app.renderBlock('newGame');
 }
 
-function renderCards() {
+export function renderCards() {
 	gameWatch();
 
 	let cardValues = cards;
-	const difficulty = window.app.userLevel;
 	const numberOfCards = window.app.levels[window.app.userLevel];
 	let cardValues2 = shuffleCards(cardValues);
 
@@ -193,7 +195,7 @@ function winWindowTemplate() {
 				attrs: {
 					alt: 'win',
 					width: '96',
-					src: './img/icons/win.png',
+					src: './static/img/icons/win.png',
 				},
 			},
 			{
@@ -231,7 +233,7 @@ function loseWindowTemplate() {
 				attrs: {
 					alt: 'win',
 					width: '90',
-					src: './img/icons/lose.png',
+					src: './static/img/icons/lose.png',
 				},
 			},
 			{
