@@ -17,7 +17,7 @@ module.exports = {
 		open: true,
 		hot: true,
 	},
-	entry: path.resolve(__dirname, 'src', 'index.js'),
+	entry: path.resolve(__dirname, 'src', 'index.ts'),
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		clean: true,
@@ -110,7 +110,7 @@ module.exports = {
 		],
 	},
 	resolve: {
-		extensions: ['.tsx', '.ts', '.js'],
+		extensions: ['.ts', '.js'],
 	},
 	plugins: [
 		new HtmlWebpackPlugin({

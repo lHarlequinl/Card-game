@@ -1,11 +1,13 @@
-import { cards } from './cards.js';
+import { cards } from './cards';
 import { templateEngine } from '../lib/template-engine';
 
 export function renderGameScreen() {
 	window.app.mainNode.appendChild(templateEngine(gameScreenTemplate()));
 
-	const gameScreen = document.querySelector('.game__screen');
-	const headerScreen = document.querySelector('.game__screen-header');
+	const gameScreen = document.querySelector('.game__screen') as HTMLElement;
+	const headerScreen = document.querySelector(
+		'.game__screen-header'
+	) as HTMLElement;
 
 	headerScreen.appendChild(templateEngine(playNewGameTemplate()));
 
@@ -14,7 +16,8 @@ export function renderGameScreen() {
 }
 
 export function renderNewGame() {
-	document.querySelector('.button').addEventListener('click', (event) => {
+	const newGameButton = document.querySelector('.button') as HTMLElement;
+	newGameButton.addEventListener('click', (event) => {
 		event.preventDefault();
 
 		window.app.cards = [];
@@ -23,7 +26,7 @@ export function renderNewGame() {
 }
 
 function gameWatch() {
-	const gameTimer = document.querySelector('.timer__degits');
+	const gameTimer = document.querySelector('.timer__degits') as HTMLElement;
 
 	let milliseconds = 0;
 
@@ -33,10 +36,15 @@ function gameWatch() {
 
 			let dateTimer = new Date(milliseconds);
 
-			gameTimer.innerHTML =
-				('0' + dateTimer.getUTCMinutes()).slice(-2) +
-				':' +
-				('0' + dateTimer.getUTCSeconds()).slice(-2);
+			window.app.timers.push(
+				(gameTimer.innerHTML =
+					('0' + dateTimer.getUTCMinutes()).slice(-2) +
+					':' +
+					('0' + dateTimer.getUTCSeconds()).slice(-2))
+			);
+
+			const playerTime = String(window.app.timers.slice(-1));
+			console.log(playerTime);
 		}, 1000);
 
 		cardClickHandler();
@@ -44,7 +52,7 @@ function gameWatch() {
 }
 
 let clickCount = 0;
-const compare = [];
+const compare: string[] = [];
 
 export function cardClickHandler() {
 	const cardsShirt = document.querySelectorAll('.card__item-back');
@@ -54,7 +62,7 @@ export function cardClickHandler() {
 
 		card.addEventListener('click', (event) => {
 			event.preventDefault();
-			const { target } = event;
+			const target: any = event.target;
 
 			card.classList.add('card__item-flip');
 
@@ -115,14 +123,16 @@ export function renderCards() {
 	cardValues2.push(...cardValues2);
 	cardValues2 = shuffleCards(cardValues2);
 
-	const cardsWrapper = document.querySelector('.game__screen-cards');
+	const cardsWrapper = document.querySelector(
+		'.game__screen-cards'
+	) as HTMLElement;
 
 	cardValues2.forEach((card) => {
 		cardsWrapper.appendChild(templateEngine(card));
 	});
 }
 
-function shuffleCards(array) {
+function shuffleCards(array: object[]) {
 	for (let i = array.length - 1; i > 0; i--) {
 		let randomIndex = Math.floor(Math.random() * (i + 1));
 		[array[i], array[randomIndex]] = [array[randomIndex], array[i]];
@@ -211,7 +221,7 @@ function winWindowTemplate() {
 			{
 				tag: 'p',
 				cls: ['window__win-time', 'window-time'],
-				text: `${window.app.timers}`,
+				text: `${window.app.timers.slice(-1)}`,
 			},
 			{
 				tag: 'button',
@@ -249,7 +259,7 @@ function loseWindowTemplate() {
 			{
 				tag: 'p',
 				cls: ['window__lose-time', 'window-time'],
-				text: `${window.app.timers}`,
+				text: `${window.app.timers.slice(-1)}`,
 			},
 			{
 				tag: 'button',

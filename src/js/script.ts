@@ -2,7 +2,7 @@ import {
 	renderStartScreen,
 	renderStartButton,
 	renderLevelNumber,
-} from './start-screen.js';
+} from './start-screen';
 
 import {
 	renderGameScreen,
@@ -11,8 +11,15 @@ import {
 	renderNewGame,
 	renderCards,
 	cardClickHandler,
-} from './game-event.js';
+} from './game-event';
 
+import { Game } from './types';
+
+declare global {
+	interface Window {
+		app: Game;
+	}
+}
 window.app = {
 	blocks: {},
 	screens: {},
@@ -27,6 +34,7 @@ window.app = {
 
 		screens[screenName]();
 	},
+
 	renderBlock: (blockName, container) => {
 		if (!blocks[blockName]) console.log('Такого блока нет!');
 
@@ -36,10 +44,10 @@ window.app = {
 	userLevel: '0',
 	levels: [3, 6, 12],
 	cards: [],
-};
+} as Game;
 
-const blocks = window.app.blocks;
-const screens = window.app.screens;
+const blocks: any = window.app.blocks;
+const screens: any = window.app.screens;
 
 // START SCREEN
 screens['startScreen'] = renderStartScreen;

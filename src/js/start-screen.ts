@@ -3,43 +3,47 @@ import { templateEngine } from '../lib/template-engine';
 export function renderStartScreen() {
 	window.app.mainNode.appendChild(templateEngine(titleTemplate()));
 
-	const levelWrapper = document.querySelector('.level__wrapper');
+	const levelWrapper = document.querySelector(
+		'.level__wrapper'
+	) as HTMLElement;
 
 	window.app.renderBlock('levelNumber', levelWrapper);
 	window.app.renderBlock('startBtn', levelWrapper);
 }
 
-export function renderLevelNumber(container) {
+export function renderLevelNumber(container: HTMLElement) {
 	container.appendChild(templateEngine(levelNumberTempalate()));
 
-	document
-		.querySelector('.level__number-wrapper')
-		.addEventListener('click', (event) => {
-			event.preventDefault();
+	const levelNumber = document.querySelector(
+		'.level__number-wrapper'
+	) as HTMLElement;
+	levelNumber.addEventListener('click', (event) => {
+		event.preventDefault();
 
-			const { target } = event;
-			const levelSelection = target.getAttribute('data-id');
+		const target: any = event.target;
+		const levelSelection = target.getAttribute('data-id');
 
-			window.app.userLevel = levelSelection;
-		});
+		window.app.userLevel = levelSelection;
+	});
 }
 
-export function renderStartButton(container) {
+export function renderStartButton(container: HTMLElement) {
 	container.appendChild(templateEngine(startButtonTempalate()));
 
-	document
-		.querySelector('.level__button')
-		.addEventListener('click', (event) => {
-			event.preventDefault();
+	const startGameButton = document.querySelector(
+		'.level__button'
+	) as HTMLElement;
+	startGameButton.addEventListener('click', (event) => {
+		event.preventDefault();
 
-			const levelNumber = window.app.userLevel;
+		const levelNumber = window.app.userLevel;
 
-			if (levelNumber) {
-				window.app.renderScreen('gameScreen');
-			} else {
-				console.log('Выбирете сложность!');
-			}
-		});
+		if (levelNumber) {
+			window.app.renderScreen('gameScreen');
+		} else {
+			console.log('Выбирете сложность!');
+		}
+	});
 }
 
 function titleTemplate() {
