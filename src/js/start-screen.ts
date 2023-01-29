@@ -1,4 +1,5 @@
 import { templateEngine } from '../lib/template-engine';
+import { BlocksObjType, BlockName } from './types';
 
 export function renderStartScreen() {
 	window.app.mainNode.appendChild(templateEngine(titleTemplate()));

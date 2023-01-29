@@ -25,30 +25,41 @@ export function renderNewGame() {
 	});
 }
 
+let stopTimer: any;
+let playerTime: string
+
 function gameWatch() {
 	const gameTimer = document.querySelector('.timer__degits') as HTMLElement;
 
 	let milliseconds = 0;
 
 	setTimeout(() => {
-		setInterval(() => {
+		stopTimer = setInterval(() => {
 			milliseconds += 1000;
 
 			let dateTimer = new Date(milliseconds);
 
 			window.app.timers.push(
-				(gameTimer.innerHTML =
+				(playerTime = gameTimer.innerHTML =
 					('0' + dateTimer.getUTCMinutes()).slice(-2) +
 					':' +
-					('0' + dateTimer.getUTCSeconds()).slice(-2))
+					('0' + dateTimer.getUTCSeconds()).slice(-2)
+				)
 			);
-
-			const playerTime = String(window.app.timers.slice(-1));
-			console.log(playerTime);
 		}, 1000);
 
 		cardClickHandler();
 	}, 5000);
+}
+
+export function clearTimers() {
+	if (window.app.timers.length > 0) {
+		clearInterval(stopTimer);
+
+		window.app.timers.forEach((timer) => {
+			window.app.timers = [];
+		});
+	}
 }
 
 let clickCount = 0;
@@ -66,8 +77,6 @@ export function cardClickHandler() {
 
 			card.classList.add('card__item-flip');
 
-			const cardSuit = target.getAttribute('data-id');
-
 			window.app.cards.push(target.dataset.id);
 			compare.push(target.dataset.id);
 
@@ -81,6 +90,7 @@ export function cardClickHandler() {
 function checkResult() {
 	const [firstCard, secondCard] = compare;
 	if (clickCount >= 2 && firstCard !== secondCard) {
+		clearTimers();
 		window.app.renderScreen('loseWindow');
 
 		compare.length = 0;
@@ -95,6 +105,7 @@ function checkResult() {
 		window.app.cards.length ===
 		window.app.levels[window.app.userLevel] * 2
 	) {
+		clearTimers();
 		window.app.renderScreen('winWindow');
 
 		compare.length = 0;
@@ -103,13 +114,17 @@ function checkResult() {
 }
 
 export function renderLoseWindow() {
+	const gameScreen = document.querySelector('.game') as HTMLElement;
+
 	window.app.mainNode.appendChild(templateEngine(loseWindowTemplate()));
-	window.app.renderBlock('newGame');
+	window.app.renderBlock('newGame', gameScreen);
 }
 
 export function renderWinWindow() {
+	const gameScreen = document.querySelector('.game') as HTMLElement;
+
 	window.app.mainNode.appendChild(templateEngine(winWindowTemplate()));
-	window.app.renderBlock('newGame');
+	window.app.renderBlock('newGame', gameScreen);
 }
 
 export function renderCards() {
@@ -221,7 +236,7 @@ function winWindowTemplate() {
 			{
 				tag: 'p',
 				cls: ['window__win-time', 'window-time'],
-				text: `${window.app.timers.slice(-1)}`,
+				text: `${playerTime}`,
 			},
 			{
 				tag: 'button',
@@ -259,7 +274,7 @@ function loseWindowTemplate() {
 			{
 				tag: 'p',
 				cls: ['window__lose-time', 'window-time'],
-				text: `${window.app.timers.slice(-1)}`,
+				text: `${playerTime}`,
 			},
 			{
 				tag: 'button',

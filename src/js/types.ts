@@ -2,11 +2,11 @@ export type Game = {
 	blocks: BlocksObjType | {};
 	screens: {};
 	renderScreen: (
-		screenName?: ScreenName,		
+		screenName: ScreenName,		
 		) => void; // void менять по ситуации
 	renderBlock: (
+		blockName: BlockName, 
 		container: HTMLElement,
-		blockName?: BlockName, 
 		) => void; // void менять по ситуации
 	mainNode: HTMLElement;
 	userLevel: any;
@@ -17,14 +17,14 @@ export type Game = {
 
 type ScreenName = 'startScreen' | 'gameScreen' | 'loseWindow' | 'winWindow';
 
-type BlockName =
+export type BlockName =
 	| 'startBtn'
 	| 'levelNumber'
 	| 'newGame'
 	| 'cards'
 	| 'clickHandler';
 
-type BlocksObjType = {
+export type BlocksObjType = {
 	startBtn: () => HTMLElement;
 	levelNumber: () => HTMLElement;
 	newGame: () => HTMLElement;

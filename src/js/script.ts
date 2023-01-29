@@ -11,6 +11,7 @@ import {
 	renderNewGame,
 	renderCards,
 	cardClickHandler,
+	clearTimers,
 } from './game-event';
 
 import { Game } from './types';
@@ -20,10 +21,12 @@ declare global {
 		app: Game;
 	}
 }
+
 window.app = {
 	blocks: {},
 	screens: {},
 	timers: [],
+	clearTimers: clearTimers,
 
 	renderScreen: (screenName) => {
 		if (!screens[screenName]) console.log('Такого экрана нет!');
@@ -64,12 +67,6 @@ blocks['newGame'] = renderNewGame;
 blocks['cards'] = renderCards;
 blocks['clickHandler'] = cardClickHandler;
 
-function clearTimers() {
-	if (window.app.timers.length > 0) {
-		window.app.timers.forEach((timer) => clearInterval(timer));
-		window.app.timers = [];
-	}
-}
 
 export function getStartScreen() {
 	window.app.renderScreen('startScreen');
