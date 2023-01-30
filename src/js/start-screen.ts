@@ -1,5 +1,5 @@
 import { templateEngine } from '../lib/template-engine';
-import { BlocksObjType, BlockName } from './types';
+// import { BlocksObjType } from './types';
 
 export function renderStartScreen() {
 	window.app.mainNode.appendChild(templateEngine(titleTemplate()));
@@ -18,13 +18,17 @@ export function renderLevelNumber(container: HTMLElement) {
 	const levelNumber = document.querySelector(
 		'.level__number-wrapper'
 	) as HTMLElement;
+
 	levelNumber.addEventListener('click', (event) => {
 		event.preventDefault();
 
-		const target: any = event.target;
-		const levelSelection = target.getAttribute('data-id');
+		const target = event.target as HTMLElement;
 
-		window.app.userLevel = levelSelection;
+		if (target) {
+			const levelSelection = target.getAttribute('data-id');
+
+			window.app.userLevel = levelSelection as any as string;
+		}
 	});
 }
 
@@ -34,6 +38,7 @@ export function renderStartButton(container: HTMLElement) {
 	const startGameButton = document.querySelector(
 		'.level__button'
 	) as HTMLElement;
+
 	startGameButton.addEventListener('click', (event) => {
 		event.preventDefault();
 

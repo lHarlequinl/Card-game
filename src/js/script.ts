@@ -14,7 +14,7 @@ import {
 	clearTimers,
 } from './game-event';
 
-import { Game } from './types';
+import { Game, BlocksObjType } from './types';
 
 declare global {
 	interface Window {
@@ -49,8 +49,8 @@ window.app = {
 	cards: [],
 } as Game;
 
-const blocks: any = window.app.blocks;
-const screens: any = window.app.screens;
+const blocks = window.app.blocks;
+const screens = window.app.screens;
 
 // START SCREEN
 screens['startScreen'] = renderStartScreen;
@@ -66,7 +66,6 @@ screens['winWindow'] = renderWinWindow;
 blocks['newGame'] = renderNewGame;
 blocks['cards'] = renderCards;
 blocks['clickHandler'] = cardClickHandler;
-
 
 export function getStartScreen() {
 	window.app.renderScreen('startScreen');

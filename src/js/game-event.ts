@@ -5,6 +5,7 @@ export function renderGameScreen() {
 	window.app.mainNode.appendChild(templateEngine(gameScreenTemplate()));
 
 	const gameScreen = document.querySelector('.game__screen') as HTMLElement;
+	
 	const headerScreen = document.querySelector(
 		'.game__screen-header'
 	) as HTMLElement;
@@ -17,6 +18,7 @@ export function renderGameScreen() {
 
 export function renderNewGame() {
 	const newGameButton = document.querySelector('.button') as HTMLElement;
+
 	newGameButton.addEventListener('click', (event) => {
 		event.preventDefault();
 
@@ -26,7 +28,7 @@ export function renderNewGame() {
 }
 
 let stopTimer: any;
-let playerTime: string
+let playerTime: string;
 
 function gameWatch() {
 	const gameTimer = document.querySelector('.timer__degits') as HTMLElement;
@@ -43,8 +45,7 @@ function gameWatch() {
 				(playerTime = gameTimer.innerHTML =
 					('0' + dateTimer.getUTCMinutes()).slice(-2) +
 					':' +
-					('0' + dateTimer.getUTCSeconds()).slice(-2)
-				)
+					('0' + dateTimer.getUTCSeconds()).slice(-2))
 			);
 		}, 1000);
 
@@ -63,7 +64,7 @@ export function clearTimers() {
 }
 
 let clickCount = 0;
-const compare: string[] = [];
+const compare: Array<string | number> = [];
 
 export function cardClickHandler() {
 	const cardsShirt = document.querySelectorAll('.card__item-back');
@@ -73,22 +74,29 @@ export function cardClickHandler() {
 
 		card.addEventListener('click', (event) => {
 			event.preventDefault();
-			const target: any = event.target;
 
-			card.classList.add('card__item-flip');
+			const target = event.target as HTMLElement;
 
-			window.app.cards.push(target.dataset.id);
-			compare.push(target.dataset.id);
+			if (target) {
+				card.classList.add('card__item-flip');
 
-			clickCount++;
+				let id: number = target.dataset.id as any as number;
 
-			checkResult();
+				window.app.cards.push(id);
+				compare.push(id);
+
+				clickCount++;
+
+				checkResult();
+			}
 		});
 	});
 }
 
 function checkResult() {
 	const [firstCard, secondCard] = compare;
+	let userLevel = window.app.userLevel as any as number;
+
 	if (clickCount >= 2 && firstCard !== secondCard) {
 		clearTimers();
 		window.app.renderScreen('loseWindow');
@@ -103,7 +111,7 @@ function checkResult() {
 
 	if (
 		window.app.cards.length ===
-		window.app.levels[window.app.userLevel] * 2
+		window.app.levels[userLevel] * 2
 	) {
 		clearTimers();
 		window.app.renderScreen('winWindow');
@@ -131,7 +139,9 @@ export function renderCards() {
 	gameWatch();
 
 	let cardValues = cards;
-	const numberOfCards = window.app.levels[window.app.userLevel];
+	let userLevel = window.app.userLevel as any as number;
+
+	const numberOfCards = window.app.levels[userLevel];
 	let cardValues2 = shuffleCards(cardValues);
 
 	cardValues2 = cardValues2.slice(0, numberOfCards);
@@ -147,7 +157,7 @@ export function renderCards() {
 	});
 }
 
-function shuffleCards(array: object[]) {
+function shuffleCards(array: Array<string | object>) {
 	for (let i = array.length - 1; i > 0; i--) {
 		let randomIndex = Math.floor(Math.random() * (i + 1));
 		[array[i], array[randomIndex]] = [array[randomIndex], array[i]];

@@ -9,10 +9,10 @@ export type Game = {
 		container: HTMLElement,
 		) => void; // void менять по ситуации
 	mainNode: HTMLElement;
-	userLevel: any;
+	userLevel: string;
 	timers: string[];
 	levels: number[];
-	cards: string[];
+	cards: Array<string | number>;
 };
 
 type ScreenName = 'startScreen' | 'gameScreen' | 'loseWindow' | 'winWindow';
