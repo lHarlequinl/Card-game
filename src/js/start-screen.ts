@@ -1,5 +1,4 @@
 import { templateEngine } from '../lib/template-engine';
-// import { BlocksObjType } from './types';
 
 export function renderStartScreen() {
 	window.app.mainNode.appendChild(templateEngine(titleTemplate()));
@@ -7,6 +6,9 @@ export function renderStartScreen() {
 	const levelWrapper = document.querySelector(
 		'.level__wrapper'
 	) as HTMLElement;
+
+	window.app.blocks['startBtn'], renderStartButton;
+	window.app.blocks['levelNumber'], renderLevelNumber;
 
 	window.app.renderBlock('levelNumber', levelWrapper);
 	window.app.renderBlock('startBtn', levelWrapper);
@@ -22,9 +24,9 @@ export function renderLevelNumber(container: HTMLElement) {
 	levelNumber.addEventListener('click', (event) => {
 		event.preventDefault();
 
-		const target = event.target as HTMLElement;
+		const { target } = event;
 
-		if (target) {
+		if (target instanceof HTMLElement) {
 			const levelSelection = target.getAttribute('data-id');
 
 			window.app.userLevel = levelSelection as any as string;

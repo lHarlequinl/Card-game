@@ -75,9 +75,9 @@ export function cardClickHandler() {
 		card.addEventListener('click', (event) => {
 			event.preventDefault();
 
-			const target = event.target as HTMLElement;
+			const { target } = event;
 
-			if (target) {
+			if (target instanceof HTMLElement) {
 				card.classList.add('card__item-flip');
 
 				let id: number = target.dataset.id as any as number;

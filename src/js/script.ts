@@ -14,7 +14,7 @@ import {
 	clearTimers,
 } from './game-event';
 
-import { Game, BlocksObjType } from './types';
+import { Game } from './types';
 
 declare global {
 	interface Window {
@@ -29,43 +29,62 @@ window.app = {
 	clearTimers: clearTimers,
 
 	renderScreen: (screenName) => {
-		if (!screens[screenName]) console.log('Такого экрана нет!');
+		if (!window.app.screens[screenName]) {
+			console.log('Такого экрана нет!');
+		} else {
+			clearTimers();
 
-		clearTimers();
+			window.app.mainNode.replaceChildren();
 
-		window.app.mainNode.replaceChildren();
-
-		screens[screenName]();
+			window.app.screens[screenName]();
+		}
 	},
 
 	renderBlock: (blockName, container) => {
-		if (!blocks[blockName]) console.log('Такого блока нет!');
-
-		blocks[blockName](container);
+		if (!window.app.blocks[blockName]) {
+			console.log('Такого блока нет!');
+		} else {
+			window.app.blocks[blockName](container);
+		}
 	},
-	mainNode: document.querySelector('.game'),
+	mainNode: document.querySelector('.game') as HTMLElement,
 	userLevel: '0',
 	levels: [3, 6, 12],
 	cards: [],
-} as Game;
+};
 
-const blocks = window.app.blocks;
-const screens = window.app.screens;
+// const blocks = window.app.blocks;
+// const screens = window.app.screens;
 
 // START SCREEN
-screens['startScreen'] = renderStartScreen;
+// screens['startScreen'] = renderStartScreen;
 
-blocks['startBtn'] = renderStartButton;
-blocks['levelNumber'] = renderLevelNumber;
+// blocks['startBtn'] = renderStartButton;
+// blocks['levelNumber'] = renderLevelNumber;
+
+// // GAME
+// screens['gameScreen'] = renderGameScreen;
+// screens['loseWindow'] = renderLoseWindow;
+// screens['winWindow'] = renderWinWindow;
+
+// blocks['newGame'] = renderNewGame;
+// blocks['cards'] = renderCards;
+// blocks['clickHandler'] = cardClickHandler;
+
+// START SCREEN
+window.app.screens['startScreen'], renderStartScreen;
+
+window.app.blocks['startBtn'], renderStartButton;
+window.app.blocks['levelNumber'], renderLevelNumber;
 
 // GAME
-screens['gameScreen'] = renderGameScreen;
-screens['loseWindow'] = renderLoseWindow;
-screens['winWindow'] = renderWinWindow;
+window.app.screens['gameScreen'], renderGameScreen;
+window.app.screens['loseWindow'], renderLoseWindow;
+window.app.screens['winWindow'], renderWinWindow;
 
-blocks['newGame'] = renderNewGame;
-blocks['cards'] = renderCards;
-blocks['clickHandler'] = cardClickHandler;
+window.app.blocks['newGame'], renderNewGame;
+window.app.blocks['cards'], renderCards;
+window.app.blocks['clickHandler'], cardClickHandler;
 
 export function getStartScreen() {
 	window.app.renderScreen('startScreen');
