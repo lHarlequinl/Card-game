@@ -53,38 +53,20 @@ window.app = {
 	cards: [],
 };
 
-// const blocks = window.app.blocks;
-// const screens = window.app.screens;
-
 // START SCREEN
-// screens['startScreen'] = renderStartScreen;
+window.app.screens['startScreen'] = renderStartScreen;
 
-// blocks['startBtn'] = renderStartButton;
-// blocks['levelNumber'] = renderLevelNumber;
-
-// // GAME
-// screens['gameScreen'] = renderGameScreen;
-// screens['loseWindow'] = renderLoseWindow;
-// screens['winWindow'] = renderWinWindow;
-
-// blocks['newGame'] = renderNewGame;
-// blocks['cards'] = renderCards;
-// blocks['clickHandler'] = cardClickHandler;
-
-// START SCREEN
-window.app.screens['startScreen'], renderStartScreen;
-
-window.app.blocks['startBtn'], renderStartButton;
-window.app.blocks['levelNumber'], renderLevelNumber;
+window.app.blocks['startBtn'] = renderStartButton;
+window.app.blocks['levelNumber'] = renderLevelNumber;
 
 // GAME
-window.app.screens['gameScreen'], renderGameScreen;
-window.app.screens['loseWindow'], renderLoseWindow;
-window.app.screens['winWindow'], renderWinWindow;
+window.app.screens['gameScreen'] = renderGameScreen;
+window.app.screens['loseWindow'] = renderLoseWindow;
+window.app.screens['winWindow'] = renderWinWindow;
 
-window.app.blocks['newGame'], renderNewGame;
-window.app.blocks['cards'], renderCards;
-window.app.blocks['clickHandler'], cardClickHandler;
+window.app.blocks['newGame'] = renderNewGame;
+window.app.blocks['cards'] = renderCards;
+window.app.blocks['clickHandler'] = cardClickHandler;
 
 export function getStartScreen() {
 	window.app.renderScreen('startScreen');

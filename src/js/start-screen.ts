@@ -7,9 +7,6 @@ export function renderStartScreen() {
 		'.level__wrapper'
 	) as HTMLElement;
 
-	window.app.blocks['startBtn'], renderStartButton;
-	window.app.blocks['levelNumber'], renderLevelNumber;
-
 	window.app.renderBlock('levelNumber', levelWrapper);
 	window.app.renderBlock('startBtn', levelWrapper);
 }
