@@ -1,11 +1,10 @@
-import { cards } from './cards';
+import { cards, cardType } from './cards';
 import { templateEngine } from '../lib/template-engine';
 
 export function renderGameScreen() {
 	window.app.mainNode.appendChild(templateEngine(gameScreenTemplate()));
 
 	const gameScreen = document.querySelector('.game__screen') as HTMLElement;
-	
 	const headerScreen = document.querySelector(
 		'.game__screen-header'
 	) as HTMLElement;
@@ -27,8 +26,13 @@ export function renderNewGame() {
 	});
 }
 
-let stopTimer: any;
+let stopTimer: ReturnType<typeof setInterval>;
 let playerTime: string;
+const PAIRS: number[] = [3, 6, 9];
+let clickCount = 0;
+let compare: string[] = [];
+let moves = 0;
+let cardValues2: cardType[];
 
 function gameWatch() {
 	const gameTimer = document.querySelector('.timer__degits') as HTMLElement;
@@ -63,8 +67,26 @@ export function clearTimers() {
 	}
 }
 
-let clickCount = 0;
-const compare: Array<string | number> = [];
+export function renderCards() {
+	gameWatch();
+
+	let cardValues: cardType[] = cards;
+
+	const numberOfCards = PAIRS[Number(window.app.userLevel) - 1];
+
+	cardValues2 = shuffleCards(cardValues);
+	cardValues2 = cardValues2.slice(0, numberOfCards);
+	cardValues2.push(...cardValues2);
+	cardValues2 = shuffleCards(cardValues2);
+
+	const cardsWrapper = document.querySelector(
+		'.game__screen-cards'
+	) as HTMLElement;
+
+	cardValues2.forEach((card) => {
+		cardsWrapper.appendChild(templateEngine(card));
+	});
+}
 
 export function cardClickHandler() {
 	const cardsShirt = document.querySelectorAll('.card__item-back');
@@ -80,12 +102,13 @@ export function cardClickHandler() {
 			if (target instanceof HTMLElement) {
 				card.classList.add('card__item-flip');
 
-				let id: number = target.dataset.id as any as number;
+				const cardName = target.getAttribute('data-id') as string;
 
-				window.app.cards.push(id);
-				compare.push(id);
+				window.app.cards.push(cardName);
+				compare.push(cardName);
 
 				clickCount++;
+				moves++;
 
 				checkResult();
 			}
@@ -95,7 +118,6 @@ export function cardClickHandler() {
 
 function checkResult() {
 	const [firstCard, secondCard] = compare;
-	let userLevel = window.app.userLevel as any as number;
 
 	if (clickCount >= 2 && firstCard !== secondCard) {
 		clearTimers();
@@ -103,21 +125,21 @@ function checkResult() {
 
 		compare.length = 0;
 		clickCount = 0;
+		moves = 0;
 	}
+
 	if (clickCount === 2 && firstCard === secondCard) {
 		compare.length = 0;
 		clickCount = 0;
 	}
 
-	if (
-		window.app.cards.length ===
-		window.app.levels[userLevel] * 2
-	) {
+	if (moves === cardValues2.length) {
 		clearTimers();
 		window.app.renderScreen('winWindow');
 
 		compare.length = 0;
 		clickCount = 0;
+		moves = 0;
 	}
 }
 
@@ -135,29 +157,7 @@ export function renderWinWindow() {
 	window.app.renderBlock('newGame', gameScreen);
 }
 
-export function renderCards() {
-	gameWatch();
-
-	let cardValues = cards;
-	let userLevel = window.app.userLevel as any as number;
-
-	const numberOfCards = window.app.levels[userLevel];
-	let cardValues2 = shuffleCards(cardValues);
-
-	cardValues2 = cardValues2.slice(0, numberOfCards);
-	cardValues2.push(...cardValues2);
-	cardValues2 = shuffleCards(cardValues2);
-
-	const cardsWrapper = document.querySelector(
-		'.game__screen-cards'
-	) as HTMLElement;
-
-	cardValues2.forEach((card) => {
-		cardsWrapper.appendChild(templateEngine(card));
-	});
-}
-
-function shuffleCards(array: Array<string | object>) {
+function shuffleCards(array: cardType[]) {
 	for (let i = array.length - 1; i > 0; i--) {
 		let randomIndex = Math.floor(Math.random() * (i + 1));
 		[array[i], array[randomIndex]] = [array[randomIndex], array[i]];

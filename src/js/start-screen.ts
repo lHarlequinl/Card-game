@@ -24,9 +24,7 @@ export function renderLevelNumber(container: HTMLElement) {
 		const { target } = event;
 
 		if (target instanceof HTMLElement) {
-			const levelSelection = target.getAttribute('data-id');
-
-			window.app.userLevel = levelSelection as any as string;
+			window.app.userLevel = target.getAttribute('data-id') as string;
 		}
 	});
 }
@@ -75,7 +73,7 @@ function levelNumberTempalate() {
 				cls: 'level__number-item',
 				text: '1',
 				attrs: {
-					'data-id': '0',
+					'data-id': '1',
 				},
 			},
 			{
@@ -83,7 +81,7 @@ function levelNumberTempalate() {
 				cls: 'level__number-item',
 				text: '2',
 				attrs: {
-					'data-id': '1',
+					'data-id': '2',
 				},
 			},
 			{
@@ -91,7 +89,7 @@ function levelNumberTempalate() {
 				cls: 'level__number-item',
 				text: '3',
 				attrs: {
-					'data-id': '2',
+					'data-id': '3',
 				},
 			},
 		],

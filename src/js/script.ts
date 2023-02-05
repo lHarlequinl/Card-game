@@ -49,7 +49,6 @@ window.app = {
 	},
 	mainNode: document.querySelector('.game') as HTMLElement,
 	userLevel: '0',
-	levels: [3, 6, 12],
 	cards: [],
 };
 

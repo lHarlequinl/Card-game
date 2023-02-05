@@ -6,9 +6,8 @@ export type Game = {
 	mainNode: HTMLElement;
 	userLevel: string;
 	timers: string[];
-	levels: number[];
-	cards: Array<string | number>;
-	clearTimers:() => void 
+	cards: string[];
+	clearTimers: () => void;
 };
 
 export type ScreenName =
