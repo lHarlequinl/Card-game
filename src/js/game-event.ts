@@ -1,13 +1,11 @@
-import { cards, cardType } from './cards';
 import { templateEngine } from '../lib/template-engine';
+import { cards, cardType } from './cards';
 
 export function renderGameScreen() {
 	window.app.mainNode.appendChild(templateEngine(gameScreenTemplate()));
 
 	const gameScreen = document.querySelector('.game__screen') as HTMLElement;
-	const headerScreen = document.querySelector(
-		'.game__screen-header'
-	) as HTMLElement;
+	const headerScreen = document.querySelector('.game__screen-header') as HTMLElement;
 
 	headerScreen.appendChild(templateEngine(playNewGameTemplate()));
 
@@ -15,19 +13,8 @@ export function renderGameScreen() {
 	window.app.renderBlock('cards', gameScreen);
 }
 
-export function renderNewGame() {
-	const newGameButton = document.querySelector('.button') as HTMLElement;
-
-	newGameButton.addEventListener('click', (event) => {
-		event.preventDefault();
-
-		window.app.cards = [];
-		window.app.renderScreen('startScreen');
-	});
-}
-
 let stopTimer: ReturnType<typeof setInterval>;
-let playerTime: string;
+export let playerTime: string;
 const PAIRS: number[] = [3, 6, 9];
 let clickCount = 0;
 let compare: string[] = [];
@@ -46,10 +33,7 @@ function gameWatch() {
 			let dateTimer = new Date(milliseconds);
 
 			window.app.timers.push(
-				(playerTime = gameTimer.innerHTML =
-					('0' + dateTimer.getUTCMinutes()).slice(-2) +
-					':' +
-					('0' + dateTimer.getUTCSeconds()).slice(-2))
+				(playerTime = gameTimer.innerHTML = ('0' + dateTimer.getUTCMinutes()).slice(-2) + ':' + ('0' + dateTimer.getUTCSeconds()).slice(-2))
 			);
 		}, 1000);
 
@@ -79,9 +63,7 @@ export function renderCards() {
 	cardValues2.push(...cardValues2);
 	cardValues2 = shuffleCards(cardValues2);
 
-	const cardsWrapper = document.querySelector(
-		'.game__screen-cards'
-	) as HTMLElement;
+	const cardsWrapper = document.querySelector('.game__screen-cards') as HTMLElement;
 
 	cardValues2.forEach((card) => {
 		cardsWrapper.appendChild(templateEngine(card));
@@ -143,26 +125,23 @@ function checkResult() {
 	}
 }
 
-export function renderLoseWindow() {
-	const gameScreen = document.querySelector('.game') as HTMLElement;
-
-	window.app.mainNode.appendChild(templateEngine(loseWindowTemplate()));
-	window.app.renderBlock('newGame', gameScreen);
-}
-
-export function renderWinWindow() {
-	const gameScreen = document.querySelector('.game') as HTMLElement;
-
-	window.app.mainNode.appendChild(templateEngine(winWindowTemplate()));
-	window.app.renderBlock('newGame', gameScreen);
-}
-
 function shuffleCards(array: cardType[]) {
 	for (let i = array.length - 1; i > 0; i--) {
 		let randomIndex = Math.floor(Math.random() * (i + 1));
 		[array[i], array[randomIndex]] = [array[randomIndex], array[i]];
 	}
 	return array;
+}
+
+export function renderNewGame() {
+	const newGameButton = document.querySelector('.button') as HTMLElement;
+
+	newGameButton.addEventListener('click', (event) => {
+		event.preventDefault();
+
+		window.app.cards = [];
+		window.app.renderScreen('startScreen');
+	});
 }
 
 function gameScreenTemplate() {
@@ -216,81 +195,5 @@ function playNewGameTemplate() {
 		tag: 'button',
 		cls: ['game__button', 'button'],
 		text: 'Начать заново',
-	};
-}
-
-function winWindowTemplate() {
-	return {
-		tag: 'div',
-		cls: ['window__win', 'window__wrapper'],
-		content: [
-			{
-				tag: 'img',
-				cls: 'window__win-image',
-				attrs: {
-					alt: 'win',
-					width: '96',
-					src: './static/img/icons/win.png',
-				},
-			},
-			{
-				tag: 'h2',
-				cls: ['window__win-title', 'window__title'],
-				text: 'Вы выиграли!',
-			},
-			{
-				tag: 'p',
-				cls: ['window__win-subtitle', 'window-subtitle'],
-				text: 'Затраченное время:',
-			},
-			{
-				tag: 'p',
-				cls: ['window__win-time', 'window-time'],
-				text: `${playerTime}`,
-			},
-			{
-				tag: 'button',
-				cls: ['window__button', 'button'],
-				text: 'Играть снова',
-			},
-		],
-	};
-}
-
-function loseWindowTemplate() {
-	return {
-		tag: 'div',
-		cls: ['window__lose', 'window__wrapper'],
-		content: [
-			{
-				tag: 'img',
-				cls: 'window__lose-image',
-				attrs: {
-					alt: 'win',
-					width: '90',
-					src: './static/img/icons/lose.png',
-				},
-			},
-			{
-				tag: 'h2',
-				cls: ['window__lose-title', 'window__title'],
-				text: 'Вы проиграли!',
-			},
-			{
-				tag: 'p',
-				cls: ['window__lose-subtitle', 'window-subtitle'],
-				text: 'Затраченное время:',
-			},
-			{
-				tag: 'p',
-				cls: ['window__lose-time', 'window-time'],
-				text: `${playerTime}`,
-			},
-			{
-				tag: 'button',
-				cls: ['window__button', 'button'],
-				text: 'Играть снова',
-			},
-		],
 	};
 }
