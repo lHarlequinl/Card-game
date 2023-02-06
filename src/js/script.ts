@@ -1,6 +1,16 @@
-import { renderStartScreen, renderStartButton, renderLevelNumber } from './start-screen';
+import {
+	renderStartScreen,
+	renderStartButton,
+	renderLevelNumber,
+} from './start-screen';
 
-import { renderGameScreen, renderNewGame, renderCards, cardClickHandler, clearTimers } from './game-event';
+import {
+	renderGameScreen,
+	renderNewGame,
+	renderCards,
+	cardClickHandler,
+	clearTimers,
+} from './game-event';
 
 import { renderWinWindow } from './win-screen';
 import { renderLoseWindow } from './lose-screen';

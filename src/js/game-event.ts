@@ -5,7 +5,9 @@ export function renderGameScreen() {
 	window.app.mainNode.appendChild(templateEngine(gameScreenTemplate()));
 
 	const gameScreen = document.querySelector('.game__screen') as HTMLElement;
-	const headerScreen = document.querySelector('.game__screen-header') as HTMLElement;
+	const headerScreen = document.querySelector(
+		'.game__screen-header'
+	) as HTMLElement;
 
 	headerScreen.appendChild(templateEngine(playNewGameTemplate()));
 
@@ -33,7 +35,10 @@ function gameWatch() {
 			let dateTimer = new Date(milliseconds);
 
 			window.app.timers.push(
-				(playerTime = gameTimer.innerHTML = ('0' + dateTimer.getUTCMinutes()).slice(-2) + ':' + ('0' + dateTimer.getUTCSeconds()).slice(-2))
+				(playerTime = gameTimer.innerHTML =
+					('0' + dateTimer.getUTCMinutes()).slice(-2) +
+					':' +
+					('0' + dateTimer.getUTCSeconds()).slice(-2))
 			);
 		}, 1000);
 
@@ -63,7 +68,9 @@ export function renderCards() {
 	cardValues2.push(...cardValues2);
 	cardValues2 = shuffleCards(cardValues2);
 
-	const cardsWrapper = document.querySelector('.game__screen-cards') as HTMLElement;
+	const cardsWrapper = document.querySelector(
+		'.game__screen-cards'
+	) as HTMLElement;
 
 	cardValues2.forEach((card) => {
 		cardsWrapper.appendChild(templateEngine(card));
