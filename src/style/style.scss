@@ -116,6 +116,7 @@ body {
 	flex-direction: column;
 	height: 100%;
 	gap: 35px;
+	width: 1280px;
 }
 
 .game__screen-header {
@@ -152,7 +153,7 @@ body {
 	justify-content: center;
 	align-items: center;
 	flex-wrap: wrap;
-	perspective: 1000px;
+	width: 950px;
 }
 
 .card__item {
