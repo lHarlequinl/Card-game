@@ -3,9 +3,7 @@ import { templateEngine } from '../lib/template-engine';
 export function renderStartScreen() {
 	window.app.mainNode.appendChild(templateEngine(titleTemplate()));
 
-	const levelWrapper = document.querySelector(
-		'.level__wrapper'
-	) as HTMLElement;
+	const levelWrapper = document.querySelector('.level__wrapper') as HTMLElement;
 
 	window.app.renderBlock('levelNumber', levelWrapper);
 	window.app.renderBlock('startBtn', levelWrapper);
@@ -14,9 +12,7 @@ export function renderStartScreen() {
 export function renderLevelNumber(container: HTMLElement) {
 	container.appendChild(templateEngine(levelNumberTempalate()));
 
-	const levelNumber = document.querySelector(
-		'.level__number-wrapper'
-	) as HTMLElement;
+	const levelNumber = document.querySelector('.level__number-wrapper') as HTMLElement;
 
 	levelNumber.addEventListener('click', (event) => {
 		event.preventDefault();
@@ -32,9 +28,7 @@ export function renderLevelNumber(container: HTMLElement) {
 export function renderStartButton(container: HTMLElement) {
 	container.appendChild(templateEngine(startButtonTempalate()));
 
-	const startGameButton = document.querySelector(
-		'.level__button'
-	) as HTMLElement;
+	const startGameButton = document.querySelector('.level__button') as HTMLElement;
 
 	startGameButton.addEventListener('click', (event) => {
 		event.preventDefault();
