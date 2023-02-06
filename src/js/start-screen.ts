@@ -3,43 +3,50 @@ import { templateEngine } from '../lib/template-engine';
 export function renderStartScreen() {
 	window.app.mainNode.appendChild(templateEngine(titleTemplate()));
 
-	const levelWrapper = document.querySelector('.level__wrapper');
+	const levelWrapper = document.querySelector(
+		'.level__wrapper'
+	) as HTMLElement;
 
 	window.app.renderBlock('levelNumber', levelWrapper);
 	window.app.renderBlock('startBtn', levelWrapper);
 }
 
-export function renderLevelNumber(container) {
+export function renderLevelNumber(container: HTMLElement) {
 	container.appendChild(templateEngine(levelNumberTempalate()));
 
-	document
-		.querySelector('.level__number-wrapper')
-		.addEventListener('click', (event) => {
-			event.preventDefault();
+	const levelNumber = document.querySelector(
+		'.level__number-wrapper'
+	) as HTMLElement;
 
-			const { target } = event;
-			const levelSelection = target.getAttribute('data-id');
+	levelNumber.addEventListener('click', (event) => {
+		event.preventDefault();
 
-			window.app.userLevel = levelSelection;
-		});
+		const { target } = event;
+
+		if (target instanceof HTMLElement) {
+			window.app.userLevel = target.getAttribute('data-id') as string;
+		}
+	});
 }
 
-export function renderStartButton(container) {
+export function renderStartButton(container: HTMLElement) {
 	container.appendChild(templateEngine(startButtonTempalate()));
 
-	document
-		.querySelector('.level__button')
-		.addEventListener('click', (event) => {
-			event.preventDefault();
+	const startGameButton = document.querySelector(
+		'.level__button'
+	) as HTMLElement;
 
-			const levelNumber = window.app.userLevel;
+	startGameButton.addEventListener('click', (event) => {
+		event.preventDefault();
 
-			if (levelNumber) {
-				window.app.renderScreen('gameScreen');
-			} else {
-				console.log('Выбирете сложность!');
-			}
-		});
+		const levelNumber = window.app.userLevel;
+
+		if (levelNumber) {
+			window.app.renderScreen('gameScreen');
+		} else {
+			console.log('Выбирете сложность!');
+		}
+	});
 }
 
 function titleTemplate() {
@@ -66,7 +73,7 @@ function levelNumberTempalate() {
 				cls: 'level__number-item',
 				text: '1',
 				attrs: {
-					'data-id': '0',
+					'data-id': '1',
 				},
 			},
 			{
@@ -74,7 +81,7 @@ function levelNumberTempalate() {
 				cls: 'level__number-item',
 				text: '2',
 				attrs: {
-					'data-id': '1',
+					'data-id': '2',
 				},
 			},
 			{
@@ -82,7 +89,7 @@ function levelNumberTempalate() {
 				cls: 'level__number-item',
 				text: '3',
 				attrs: {
-					'data-id': '2',
+					'data-id': '3',
 				},
 			},
 		],

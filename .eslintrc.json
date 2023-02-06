@@ -5,12 +5,11 @@
 		"node": true
 	},
 	"extends": ["prettier"],
+	"parser": "@typescript-eslint/parser", // проверка TS
 	"plugins": ["prettier"],
 	"parserOptions": {
 		"sourceType": "module",
 		"ecmaVersion": 2020
-		// "allowImportExportEverywhere": true,
-		// "requireConfigFile": false
 	},
 	"rules": {
 		"prettier/prettier": ["error", { "endOfLine": "auto" }],
