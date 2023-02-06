@@ -10,9 +10,20 @@ export type Game = {
 	clearTimers: () => void;
 };
 
-export type ScreenName = 'startScreen' | 'gameScreen' | 'loseWindow' | 'winWindow' | string;
+export type ScreenName =
+	| 'startScreen'
+	| 'gameScreen'
+	| 'loseWindow'
+	| 'winWindow'
+	| string;
 
-export type BlockName = 'startBtn' | 'levelNumber' | 'newGame' | 'cards' | 'clickHandler' | string;
+export type BlockName =
+	| 'startBtn'
+	| 'levelNumber'
+	| 'newGame'
+	| 'cards'
+	| 'clickHandler'
+	| string;
 
 type ScreensObjType = Record<string, () => void>;
 type BlocksObjType = Record<string, (container: HTMLElement) => void>;
