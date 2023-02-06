@@ -6,13 +6,14 @@ import {
 
 import {
 	renderGameScreen,
-	renderLoseWindow,
-	renderWinWindow,
 	renderNewGame,
 	renderCards,
 	cardClickHandler,
 	clearTimers,
 } from './game-event';
+
+import { renderWinWindow } from './win-screen';
+import { renderLoseWindow } from './lose-screen';
 
 import { Game } from './types';
 
