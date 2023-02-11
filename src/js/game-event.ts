@@ -44,7 +44,7 @@ export function renderCards() {
 	});
 }
 
-function shuffleCards(array: cardType[]) {
+export function shuffleCards(array: cardType[]) {
 	for (let i = array.length - 1; i > 0; i--) {
 		let randomIndex = Math.floor(Math.random() * (i + 1));
 		[array[i], array[randomIndex]] = [array[randomIndex], array[i]];
