@@ -17,44 +17,11 @@ export function renderGameScreen() {
 
 let stopTimer: ReturnType<typeof setInterval>;
 export let playerTime: string;
-const PAIRS: number[] = [3, 6, 9];
+export const PAIRS: number[] = [3, 6, 9];
 let clickCount = 0;
 let compare: string[] = [];
 let moves = 0;
 let cardValues2: cardType[];
-
-function gameWatch() {
-	const gameTimer = document.querySelector('.timer__degits') as HTMLElement;
-
-	let milliseconds = 0;
-
-	setTimeout(() => {
-		stopTimer = setInterval(() => {
-			milliseconds += 1000;
-
-			let dateTimer = new Date(milliseconds);
-
-			window.app.timers.push(
-				(playerTime = gameTimer.innerHTML =
-					('0' + dateTimer.getUTCMinutes()).slice(-2) +
-					':' +
-					('0' + dateTimer.getUTCSeconds()).slice(-2))
-			);
-		}, 1000);
-
-		cardClickHandler();
-	}, 5000);
-}
-
-export function clearTimers() {
-	if (window.app.timers.length > 0) {
-		clearInterval(stopTimer);
-
-		window.app.timers.forEach((timer) => {
-			window.app.timers = [];
-		});
-	}
-}
 
 export function renderCards() {
 	gameWatch();
@@ -75,6 +42,14 @@ export function renderCards() {
 	cardValues2.forEach((card) => {
 		cardsWrapper.appendChild(templateEngine(card));
 	});
+}
+
+export function shuffleCards(array: cardType[]) {
+	for (let i = array.length - 1; i > 0; i--) {
+		let randomIndex = Math.floor(Math.random() * (i + 1));
+		[array[i], array[randomIndex]] = [array[randomIndex], array[i]];
+	}
+	return array;
 }
 
 export function cardClickHandler() {
@@ -132,6 +107,39 @@ function checkResult() {
 	}
 }
 
+function gameWatch() {
+	const gameTimer = document.querySelector('.timer__degits') as HTMLElement;
+
+	let milliseconds = 0;
+
+	setTimeout(() => {
+		stopTimer = setInterval(() => {
+			milliseconds += 1000;
+
+			let dateTimer = new Date(milliseconds);
+
+			window.app.timers.push(
+				(playerTime = gameTimer.innerHTML =
+					('0' + dateTimer.getUTCMinutes()).slice(-2) +
+					':' +
+					('0' + dateTimer.getUTCSeconds()).slice(-2))
+			);
+		}, 1000);
+
+		cardClickHandler();
+	}, 5000);
+}
+
+export function clearTimers() {
+	if (window.app.timers.length > 0) {
+		clearInterval(stopTimer);
+
+		window.app.timers.forEach((timer) => {
+			window.app.timers = [];
+		});
+	}
+}
+
 export function renderNewGame() {
 	const newGameButton = document.querySelector('.button') as HTMLElement;
 
@@ -141,14 +149,6 @@ export function renderNewGame() {
 		window.app.cards = [];
 		window.app.renderScreen('startScreen');
 	});
-}
-
-function shuffleCards(array: cardType[]) {
-	for (let i = array.length - 1; i > 0; i--) {
-		let randomIndex = Math.floor(Math.random() * (i + 1));
-		[array[i], array[randomIndex]] = [array[randomIndex], array[i]];
-	}
-	return array;
 }
 
 function gameScreenTemplate() {
