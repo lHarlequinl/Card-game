@@ -80,6 +80,33 @@ export function cardClickHandler() {
 	});
 }
 
+function checkResult() {
+	const [firstCard, secondCard] = compare;
+
+	if (clickCount >= 2 && firstCard !== secondCard) {
+		clearTimers();
+		window.app.renderScreen('loseWindow');
+
+		compare.length = 0;
+		clickCount = 0;
+		moves = 0;
+	}
+
+	if (clickCount === 2 && firstCard === secondCard) {
+		compare.length = 0;
+		clickCount = 0;
+	}
+
+	if (moves === cardValues2.length) {
+		clearTimers();
+		window.app.renderScreen('winWindow');
+
+		compare.length = 0;
+		clickCount = 0;
+		moves = 0;
+	}
+}
+
 function gameWatch() {
 	const gameTimer = document.querySelector('.timer__degits') as HTMLElement;
 
@@ -110,33 +137,6 @@ export function clearTimers() {
 		window.app.timers.forEach((timer) => {
 			window.app.timers = [];
 		});
-	}
-}
-
-function checkResult() {
-	const [firstCard, secondCard] = compare;
-
-	if (clickCount >= 2 && firstCard !== secondCard) {
-		clearTimers();
-		window.app.renderScreen('loseWindow');
-
-		compare.length = 0;
-		clickCount = 0;
-		moves = 0;
-	}
-
-	if (clickCount === 2 && firstCard === secondCard) {
-		compare.length = 0;
-		clickCount = 0;
-	}
-
-	if (moves === cardValues2.length) {
-		clearTimers();
-		window.app.renderScreen('winWindow');
-
-		compare.length = 0;
-		clickCount = 0;
-		moves = 0;
 	}
 }
 
