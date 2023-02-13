@@ -61,12 +61,14 @@ window.app.blocks['levelNumber'] = renderLevelNumber;
 
 // GAME
 window.app.screens['gameScreen'] = renderGameScreen;
-window.app.screens['loseWindow'] = renderLoseWindow;
-window.app.screens['winWindow'] = renderWinWindow;
 
-window.app.blocks['newGame'] = renderNewGame;
 window.app.blocks['cards'] = renderCards;
 window.app.blocks['clickHandler'] = cardClickHandler;
+window.app.blocks['newGame'] = renderNewGame;
+
+// FINAL SCREENS
+window.app.screens['loseWindow'] = renderLoseWindow;
+window.app.screens['winWindow'] = renderWinWindow;
 
 export function getStartScreen() {
 	window.app.renderScreen('startScreen');
