@@ -19,7 +19,7 @@ let stopTimer: ReturnType<typeof setInterval>;
 export let playerTime: string;
 export const PAIRS: number[] = [3, 6, 9];
 let clickCount = 0;
-let compare: string[] = [];
+export let compare: string[] = [];
 let moves = 0;
 let cardValues2: cardType[];
 
