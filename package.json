@@ -17,7 +17,9 @@
 		"lint:js": "eslint ./src/**/*.js",
 		"clear": "rd /s /q dist",
 		"lint:ts": "tsc --noEmit",
-		"test": "jest"
+		"test": "jest",
+		"deploy": "gh-pages -d dist",
+		"predeploy": "npm run build-prod"
 	},
 	"repository": {
 		"type": "git",
@@ -29,7 +31,7 @@
 	"bugs": {
 		"url": "https://github.com/lHarlequinl/SkyPro-card-game/issues"
 	},
-	"homepage": "https://github.com/lHarlequinl/SkyPro-card-game#readme",
+	"homepage": "https://lharlequinl.github.io/Card-game/",
 	"devDependencies": {
 		"@babel/core": "^7.20.12",
 		"@babel/preset-env": "^7.20.2",
@@ -42,6 +44,7 @@
 		"eslint": "^8.33.0",
 		"eslint-config-prettier": "^8.6.0",
 		"eslint-plugin-prettier": "^4.2.1",
+		"gh-pages": "^5.0.0",
 		"html-loader": "^4.2.0",
 		"html-webpack-plugin": "^5.5.0",
 		"husky": "^8.0.3",
